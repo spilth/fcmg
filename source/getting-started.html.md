@@ -1,5 +1,6 @@
 ---
 title: Getting Started
+description: A quick guide to getting up and running with your first map.
 ---
 
 ## Creating Your First Map
@@ -13,7 +14,7 @@ title: Getting Started
 7. Interact with the Console to the right of the Rift.
 8. Press the button for Create New.
 9. Choose a Starter Island to start from.
-   - Starter Grid is a good island for experimenting with Devices.
+   - **Large Grid Island** is a good island for experimenting with Devices.
 10. Enter a Name for your Island.
 11. Confirm the name.
 12. Wait for the Rift to switch to your new map.
