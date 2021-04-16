@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Welcome!
 description: This site aims to be a guide for creating maps in Fortnite Creative Mode. It will focus on understanding all the Devices in the game and how to build game mechanics with them.
 ---
 
