@@ -13,7 +13,7 @@ Conditional Buttons allow you to set up a more complex interaction in your game.
 
 The Lock and the Conditional Button will both be colored yellow to help associate them in a player's mind. We'll also play a sound once the lock/door has been opened in order to notify the player.
 
-<img src="/images/recipes/jewel-hungry-door-lock.png" class="img img-fluid" title="I'm just a girl, standing in front of a door, trying to feed it jewels.">
+<img src="/images/recipes/jewel-hungry-door-lock.jpg" class="img img-fluid" title="I'm just a girl, standing in front of a door, trying to feed it jewels.">
 
 ## Steps
 
@@ -30,7 +30,7 @@ The Lock and the Conditional Button will both be colored yellow to help associat
 1. Place the **Item Spawner** a bit further away.
 1. Equip a **Jewel** and drop it on the **Item Spawner**.
 1. Equip another **Jewel** and drop it on the **Conditional Button**.
-1. Set the following options on the Conditional Lock:
+1. Set the following options on the **Conditional Lock**:
    - **Color**: Gold
    - **Interaction Text**: Feed me jewels!
    - **Display Main Icon**: Locked
@@ -39,12 +39,12 @@ The Lock and the Conditional Button will both be colored yellow to help associat
    - **Key Items Required**: 3
    - **All Key Items Required At Once**: No
    - **When Activated Transmit On**: Channel 1
-1. Set the following options on the Speaker:
+1. Set the following options on the **Speaker**:
    - **Audio Selection**: Unlock
    - **Volume**: Loud
    - **Activate on Hit**: No
    - **Activate When Receiving From**: Channel 1
-1. Set the following options on the Lock Device:
+1. Set the following options on the **Lock Device**:
    - **Color**: Gold
    - **Unlock when Receiving from**: Channel 1
    - **Open when Receiving from**: Channel 1

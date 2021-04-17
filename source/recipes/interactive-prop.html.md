@@ -16,7 +16,7 @@ Additionally, if you increase the **Interaction Radius** beyond **Button** then 
 
 In the recipe we'll make a computer console that players can "hack" to display a message via their HUD.
 
-<img src="/images/recipes/interactive-prop.png" class="img img-fluid">
+<img src="/images/recipes/interactive-prop.jpg" class="img img-fluid">
 
 ## Steps
 
