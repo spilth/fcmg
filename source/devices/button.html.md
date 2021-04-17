@@ -34,6 +34,7 @@ The following recipes make use of this device:
 
 - [Press a Button to show a Billboard](/recipes/button-billboard)
 - [Make an Interactive Prop](/recipes/interactive-prop)
+- [Treasure Map](/recipes/treasure-map)
 
 ## See Also
 

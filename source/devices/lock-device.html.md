@@ -8,7 +8,7 @@ categories:
 
 ## Overview
 
-<img src="/images/devices/lock-device.png" class="img img-fliud img-thumbnail">
+<img src="/images/devices/lock-device.png" class="img img-fluid img-thumbnail">
 
 ## Recipes
 

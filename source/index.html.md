@@ -12,6 +12,7 @@ description: This site aims to be a guide for creating maps in Fortnite Creative
 - [Button](/devices/button)
 - [Conditional Button](/devices/conditional-button)
 - [Lock Device](/devices/lock-device)
+- [Map Indicator](/devices/map-indicator)
 - [Speaker](/devices/speaker)
 
 ## Recipes
@@ -19,6 +20,7 @@ description: This site aims to be a guide for creating maps in Fortnite Creative
 - [Press a Button to show a Billboard](/recipes/button-billboard)
 - [Make an Interactive Prop](/recipes/interactive-prop)
 - [Jewel Hungry Door Lock](/recipes/jewel-hungry-door-lock)
+- [Treasure Map](/recipes/treasure-map)
 
 ## Contributing
 
