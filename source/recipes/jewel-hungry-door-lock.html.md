@@ -11,6 +11,10 @@ devices:
 
 Conditional Buttons allow you to set up a more complex interaction in your game. In this example we'll create a door that needs 3 nearby Jewels. Once the third Jewel has been provided a success sound will play and the door will unlock and open, allowing the player to access the inside of the room.
 
+The Lock and the Conditional Button will both be colored yellow to help associate them in a player's mind. We'll also play a sound once the lock/door has been opened in order to notify the player.
+
+<img src="/images/recipes/jewel-hungry-door-lock.png" class="img img-fluid" title="I'm just a girl, standing in front of a door, trying to feed it jewels.">
+
 ## Steps
 
 1. From the Creative Inventory, equip the following items:
@@ -36,7 +40,7 @@ Conditional Buttons allow you to set up a more complex interaction in your game.
    - **All Key Items Required At Once**: No
    - **When Activated Transmit On**: Channel 1
 1. Set the following options on the Speaker:
-   - **Audio Selection**: Success 1
+   - **Audio Selection**: Unlock
    - **Volume**: Loud
    - **Activate on Hit**: No
    - **Activate When Receiving From**: Channel 1
@@ -49,8 +53,9 @@ Finally, in **My Island / Settings** set **Environment Damage** to **Off** to pr
    
 ## Exercises
 
+- Add a **HUD Message Device** that displays a congratulatory message to just the Player that opened the door.
 - Try using Coins instead of Jewels to open the door. This will require two things
    - You will need to **Clear Items** from the existing **Conditional Button** before dropping the coin on it.
-   - You will need to set **My Island / Settings / Infinite Resources** to **Off* otherwise players start with an infinite number of coins.
+   - You will need to set **My Island / Settings / Infinite Resources** to **Off** otherwise players start with an infinite number of coins.
 - Add another **Conditional Button** that closes and locks the door when it has been given 2 jewels.
   - Note: It should only be usable once the door has been unlocked and opened.
