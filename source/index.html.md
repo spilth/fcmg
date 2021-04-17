@@ -11,6 +11,8 @@ description: This site aims to be a guide for creating maps in Fortnite Creative
 
 - [Button](/devices/button)
 - [Conditional Button](/devices/conditional-button)
+- [Lock Device](/devices/lock-device)
+- [Speaker](/devices/speaker)
 
 ## Recipes
 
