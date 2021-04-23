@@ -1,0 +1,51 @@
+name: Lock Device
+description: Attach this device to a wall section with a door to allow the door to be opened, closed, locked and unlocked via receivers.
+inventory_image: /images/devices/lock-device.png
+categories:
+  - Objective
+  - Triggers
+recipes:
+  - name: Jewel Hungry Door Lock
+    path: /recipes/jewel-hungry-door-lock
+options:
+  - name: Initial Door Position
+    description: Determines whether the door is open or closed at game start.
+    choices:
+      - name: Open
+        description: The door will be open at game start.
+      - name: Close
+        isDefault: True
+        description: The door will be closed at game start.
+  - name: Visible in Game
+    description: Determines whether the device is visible during the game. This does affect its collision properties.
+    choices:
+      - name: On
+        isDefault: True
+        description: The Lock Device will be visible during the game.
+      - name: Off
+        description: The Lock Device will NOT be visible during the game.
+  - name: Color
+    description: Changes the color of the device to help players tell them apart.
+    notes: This can be useful for associating the color of the lock with the color of the item/device that unlocks is.
+    choices:
+      - name: White
+        isDefault: True
+      - name: Sky Blue, Red-Orange, Gold, Apple Green, Fuchsia, Orange, Aquamarine, Beige, Purple, Neon Green, Cerulean, Silver, Aqua, Pink, Green
+  - name: Starts Locked
+    description: Determines whether the door is locked or unlocked at Game Start.
+    choices:
+      - name: Yes
+        isDefault: True
+        description: The Lock Device will be locked at Game Start.
+      - name: No
+        description: The Lock Device will be unlocked at Game Start.
+receivers:
+  - name: Unlock when Receiving From
+    description: Unlocks the door on receiving a signal from the selected channel. If set to the same channel as Lock When Receiving From, this will toggle the lock state.
+  - name: Lock when Receiving From
+    description: Locks the door on receiving a signal from the selected channel. If set to the same channel as Unlock When Receiving From, this will toggle the lock state.
+  - name: Open when Receiving From
+    description: Causes the door to open automatically on receiving a signal from the selected channel. If set to the same channel as Close when Receiving From, this will toggle the door state.
+  - name: Close when Receiving From
+    description: Causes the door to close automatically on receiving a signal from the selected channel. If set to the same channel as Open when Receiving From, this will toggle the door state.
+

@@ -1,0 +1,20 @@
+<ul class="list-unstyled">
+  <li><a href="/getting-started">Getting Started</a></li>
+</ul>
+
+<h5>Device Guides</h5>
+
+<ul class="list-unstyled">
+  <% data.devices.sort.each do |device| %>
+    <li><%= link_to device[1].name, "/devices/#{device[0]}" %></li>
+  <% end %>
+</ul>
+
+<h5>Recipes</h5>
+
+<ul class="list-unstyled">
+  <li><a href="/recipes/button-billboard">Press a Button to show a Billboard</a></li>
+  <li><a href="/recipes/interactive-prop">Make an Interactive Prop</a></li>
+  <li><a href="/recipes/jewel-hungry-door-lock">Jewel Hungry Door Lock</a></li>
+  <li><a href="/recipes/treasure-map">Treasure Map</a></li>
+</ul>

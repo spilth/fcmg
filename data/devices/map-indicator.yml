@@ -1,0 +1,60 @@
+name: Map Indicator
+description: Allows custom Points of Interest and markers to be placed on the Minimap and Overview Map
+inventory_image: /images/devices/map-indicator.png
+categories:
+  - Informational
+recipes:
+  - name: Treasure Map
+    path: /recipes/treasure-map
+options:
+  - name: Enabled On Game Start
+    description: Determines whether the device is enabled when the game starts.
+    choices:
+      - name: No
+        description: The device is disabled when the game starts.
+      - name: Yes
+        isDefault: True
+        description: The device is enabled when the game starts.
+  - name: Team
+    description: Specifies which team can see the indicator.
+    choices:
+      - name: All
+      - name: Team 1..16
+  - name: Icon
+    description: Sets the icon to be displayed on the map.
+    choices:
+      - name: A
+        isDefault: True
+      - name: B, C, D
+        description:
+  - name: Icon Color
+    description: Sets the color of the displayed icon.
+    choices:
+      - name: White
+        isDefault: True
+      - name: Red, Orange, Yellow, Green, Teal, Blue, Purple
+        description:
+  - name: Text
+    description: Allow custom text to be displayed, centered on the indicator location.
+    notes: The case of the text is preserved on both the overview map and the minimap.
+  - name: Text Color
+    description: Sets the color of the displayed text.
+    choices:
+      - name: White
+        isDefault: True
+      - name: Red, Orange, Yellow, Green, Teal, Blue, Purple
+  - name: Show On Which Map
+    description: Determines which maps the indicator should be displayed on.
+    choices:
+      - name: Both
+        isDefault: True
+        description: The indicator is displayed on both maps.
+      - name: Minimap
+        description: The indicator is only displayed on the Minimap.
+      - name: Overview Map
+        description: The indicator is only displayed on the Overview Map.
+receivers:
+  - name: Enable When Receiving From
+    description: Enables the device on receiving a signal from the selected channel.
+  - name: Disable When Receiving From
+    description: Disables the device on receiving a signal from the selected channel.

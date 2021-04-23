@@ -1,0 +1,132 @@
+name: Button
+description: Configurable button which can trigger other devices when pushed
+notes: |
+  Interacting with the button uses the following timeline:
+
+  - Button is green (if **Enabled At Game Start** is **Enabled**)
+  - Player Interacts
+  - Wait for **Interact Time** (if not **Instant**)
+  - Button is triggered
+  - Button turns yellow
+  - Wait for **Delay** (if not **None**)
+  - Signal is sent to **When Interacted With Transmit On** channel (if not **None**)
+  - If **Times Can Trigger** limit has been reached:
+    - Button turns orange
+    - Button is disabled
+  - Otherwise:
+    - Wait for **Reset Delay** (if not **None**)
+    - Button turns green
+    - Player can Interact again
+inventory_image: /images/devices/button.png
+placement_image: /images/devices/placement_button.png
+categories:
+  - Triggers
+recipes:
+  - name: Press a Button to show a Billboard
+    path: /recipes/button-billboard
+  - name: Make an Interactive Prop
+    path: /recipes/interactive-prop
+  - name: Treasure Map
+    path: /recipes/treasure-map
+options:
+  - name: Interact Time
+    description: Determines the length of interaction required to activate the device.
+    notes: |
+      The transmission of the button being activated *may* still be delayed by the **Delay** option.
+    choices:
+      - name: Instant
+        isDefault: True
+      - name: 1..10,15,20 Seconds
+        description: The player must Interact with the button for the specified amount of time.
+        notes: |
+          Use one of these values if you want the player to have to focus on the button for a period of time before it transmits a signal. This can make the interaction more dangerous and tense.
+  - name: Activating Team
+    description: Determines which team can activate the device.
+    choices:
+      - name: Any
+        description: A player's team does not matter for activating this device.
+        isDefault: True
+      - name: 1..16
+        description: Only a player from the specified team number may activate this device.
+  - name: Times Can Trigger
+    description: The number of times this device can be triggered before being disabled.
+    notes: |
+      Once a Button has been disabled due to its Time Can Trigger limit, it cannot be re-enabled again by sending a signal to Enable When Receiving From.
+
+      To create a button that is disabled when it is used but can be still re-enabled by another device in the future:
+
+      - Set Time Can Trigger to Infinite
+      - Use the same Channel number for the following options:
+        - When Interacted With Transmit On
+        - Disable When Receiving From
+
+      This will disable the button right after it has been used. You can now use another device to re-enable the button at a later time.
+    choices:
+      - name: Infinite
+        description: There is no limit to how many times this button can be activated, assuming it is enabled.
+        isDefault: True
+      - name: 1..10
+        description: The button can only be activated the specified number of times.
+  - name: Delay
+    description: Determines the length of time the device will wait between being triggered and sending a signal.
+    choices:
+      - name: None
+        description: A signal is sent immediately.
+        isDefault: True
+      - name: 1..3, 5, 10, 20, 30 Seconds, 1..3, 5, 10, 15, 20 Minutes
+        description: The button waits the specified time before sending a signal.
+  - name: Reset Delay
+    description: Specifies the length of time the device must wait after sending a signal before it can be triggered again.
+    choices:
+      - name: None
+        isDefault: True
+        description: There is no delay and the button can be used again immediately.
+      - name: 1..3, 5, 10, 20, 30 Seconds, 1..3, 5, 10, 15, 20 Minutes
+        description: The button waits the specified time before it can be interacted with again.
+  - name: Trigger Sound
+    description: Determines whether a sound is played when the device is triggered.
+    notes: The sound is a low-volume clicking sound.
+    choices:
+      - name: Disabled
+        description: The sound is not played.
+      - name: Enabled
+        description: The sound is played.
+        isDefault: True
+  - name: Enabled At Game Start
+    description: Whether or not this device is enabled when the game is started. For use in conjunction with Transmitters / Receivers.
+    choices:
+      - name: Enabled
+        isDefault: True
+        description: The button is enabled at the start of a game.
+      - name: Disabled
+        description: The buttons is disabled at the start of a game.
+  - name: Interaction Text
+    description: Text that appears for players looking at the button. (Maximum of 64 characters)
+    notes: This text will be displayed using only UPPERCASE letters.
+  - name: Visible During Game
+    description: Determines whether the device will be visible during the game.
+    notes: Making the button invisible, placing it on a prop and increasing the **Interaction Radius** can make a prop appear interactive.
+    choices:
+      - name: Yes
+        isDefault: True
+        description: Players will be able to see the button during gameplay.
+      - name: No
+        description: Players will not be able to see the button during gameplay but may still be able to interact with it.
+  - name: Interaction Radius
+    description: Allows players to interact by looking at any point within a radius of the specified size, rather than having to look directly at the button. Use in conjunction with the Visibility setting to make it appear as though players are interacting with other props.
+    choices:
+      - name: Button
+        isDefault: True
+        description: The player must look directly at the button.
+      - name: 0.25M, 0.5M, 0.75M, 1M, 1.5M, 2M, 2.5M
+        description: The player can look at the given radius around the button.
+        notes: Creative Mode will show a transparent preview of the radius when one of these options is enabled.
+
+receivers:
+  - name: Enable when receiving from
+    description: Enables the device on receiving a signal from the selected channel.
+  - name: Disable when receiving from
+    description: Disables the device on receiving a signal from the selected channel.
+
+transmitters:
+  - name: When interacted with transmit on

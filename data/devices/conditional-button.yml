@@ -1,0 +1,119 @@
+name: Conditional Button
+description: A button which can only be activated when players are carrying specific items.
+inventory_image: /images/devices/conditional-button.png
+categories:
+  - Objective
+  - Triggers
+recipes:
+  - name: Jewel Hungry Door Lock
+    path: /recipes/jewel-hungry-door-lock
+options:
+  - name: Team
+    description: Specifies which team owns the device.
+    notes: This option influences the **Can be used by** and **Color/Team Color** options.
+    choices:
+      - name: All
+        isDefault: True
+        description: The button is not owned by any specific team.
+      - name: 1..16
+        description: The button is owned by the specified team.
+  - name: Can be used by
+    description: Determines which teams can use the device.
+    choices:
+      - name: Owning Team
+        isDefault: True
+        description: The device can be used by players on the team specified by the **Team** option.
+      - name: Other Teams
+        description: The device can be used by players NOT on the team specified the **Team** option.
+      - name: All
+        description: The device can be used by players on all teams.
+  - name: Color
+    description: Changes the color of the device to help players tell them apart.
+    choices:
+      - name: White
+        isDefault: True
+      - name: Sky Blue, Red-Orange, Gold, Apple Green, Fuchsia, Orange, Aquamarine, Beige, Purple, Neon Green, Cerulean, Silver, Aqua, Pink, Green
+  - name: Interaction Text
+    description: The text that appears when players approach the button.
+  - name: Display Main Icon
+    description: Shows the chosen Icon on the Screen and Base Hologram
+    choices:
+      - name: Exclamation
+        isDefault: True
+      - name: Locked, Unlocked, Bomb, Exploding Barrel, Signal (Off), Signal (On), Bolt, Recycle, On/Off
+  - name: Alt Display Icon
+    description: Show the chosen Icon on the "Action" Hologram.
+    notes: This can help communicate what will happen when the button is activated. For example the door starts off as **Locked** but will become **Unlocked** if the correct items are given to the button.
+    choices:
+      - name: Default
+        isDefault: True
+        description: Display the same icon as **Display Main Icon** (or the alternate version of it if  **Toggle Icon on Use**  is set to **Yes**)
+      - name: Locked, Unlocked, Bomb, Exploding Barrel, Signal (Off), Signal (On), Exclamation, Bolt, Recycle, On/Off
+  - name: Toggle Icon on Use
+    description: Each icon has an alternate version which can be displayed when the button is successfully activated. Use this to choose whether to switch to the alternate icon on activation.
+    notes: This can help communicate what will happen when the button is activated. For example the door starts off as **Locked** but will become **Unlocked** if the correct items are given to the button.
+    choices:
+      - name: Yes
+        description: Switch to the alternate icon after the button is activated.
+      - name: No
+        isDefault: True
+        description: Do not switch to the alternate icon after the button is activated.
+  - name: Disable After Use
+    description: Sets the device to become disabled after successful activation. The device can be reset or re-enabled via receivers.
+    choices:
+      - name: Yes
+        description: The button is disabled after it is activated.
+      - name: No
+        isDefault: True
+        description: The button is NOT disabled after it is activated.
+  - name: Show Key Item
+    description: Determines whether the device should display a hologram of the item type that is required to unlock it.
+    choices:
+      - name: Yes
+        isDefault: True
+        description: Show a hologram of the required item type on the device.
+      - name: No
+        description: Do not show a hologram of the required item type on the device.
+  - name: Key Items Required
+    description: Sets the quantity of the key items required to activate the button.
+    choices:
+      - name: 1
+        isDefault: True
+      - name: 2..10, 15, 20, 25, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 999
+        description: Players must bring the specified amount of the item in order to activate the button.
+  - name: Consume Key Items
+    description: Determines whether key items are removed from inventory when the button is pressed.
+    choices:
+      - name: Yes
+        isDefault: True
+        description: The items are removed from the player's inventory when the button is pressed.
+      - name: No
+        description: The items are NOT removed from the player's inventory when the button is pressed.
+  - name: All Key Items Required at Once
+    description: Determines whether the full quantity of items must be in the player's inventory at once or whether they can deliver them in batches. Only has an effect if Consume Key Items is set to **On**.
+    choices:
+      - name: Yes
+        isDefault: True
+        description: The player must have the required number of items all at once.
+      - name: No
+        description: The player can delivery the item in batches over time.
+  - name: Enabled at Game Start
+    description: Determines whether the device is enabled when the game starts. Disabled devices ignore all events except being Enabled.
+    choices:
+      - name: Yes
+        isDefault: True
+        description: The button is enabled when the game starts.
+      - name: No
+        description: The button is disabled when the game starts.
+receivers:
+  - name: Enabled When Receiving From
+    description: Enables the device on receiving a signal from the selected channel. If set to the same channel as Disable When Receiving From, this will toggle the enabled state.
+  - name: Disabled When Receiving From
+    description: Disables the device on receiving a signal from the selected channel. If set to the same channel as Disable When Receiving From, this will toggle the enabled state.
+  - name: Reset When Receiving From
+    description: Resets the device to its initial stage on receiving a signal from the selected channel.
+  - name: Activate When Receiving From
+    description: Activates when receiving a signal from the selected channel if the sending player meets the requirements.
+transmitters:
+  - name: When Activated Transmit On
+    description: Transmits a signal on the selected channel when the device is activated.

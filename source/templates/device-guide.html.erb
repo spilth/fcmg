@@ -1,0 +1,103 @@
+<% content_for :on_this_page do %>
+  <h6>On this page</h6>
+  <ul class="list-unstyled">
+    <li><a href="#overview">Overview</a></li>
+    <% if device.recipes %>
+      <li><a href="#recipes">Recipes</a></li>
+    <% end %>
+    <% if device.options %>
+      <li><a href="#options">Device Options</a></li>
+    <% end %>
+    <% if device.receivers %>
+      <li><a href="#receivers">Receivers</a></li>
+    <% end %>
+    <% if device.transmitters %>
+      <li><a href="#transmitters">Transmitters</a></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% content_for :page_title do %>
+  Device: <%= device.name %>
+<% end %>
+
+<h1>Device: <%= device.name %></h1>
+
+<p class="lead"><%= md2html(device.description) %></p>
+
+<% if device.categories %>
+  <% device.categories.each do |category| %>
+    <span class="badge rounded-pill bg-primary"><%= category %></span>
+  <% end %>
+<% end %>
+
+<h2 id="overview">Overview</h2>
+
+<%= image_tag device.inventory_image, class: "img img-fluid img-thumgnail" %>
+
+<p><%= md2html(device.notes) %></p>
+
+<% if device.recipes.present? %>
+  <h2 id="recipes">Recipes</h2>
+
+  <p>The following recipes use <%= device.name %>:</p>
+
+  <ul>
+    <% device.recipes.each do |recipes| %>
+      <li>
+        <%= link_to recipes.name, recipes.path %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if device.options %>
+  <h2 id="options">Device Options</h2>
+
+  <p><%= device.name %> has the following options:</p>
+
+  <% device.options.each do |option| %>
+    <h3><%= option.name %></h3>
+
+    <p><%= md2html(option.description) %></p>
+
+    <p><%= md2html(option.notes) %></p>
+
+    <% if option.choices %>
+      <% option.choices.each do |choice| %>
+        <h4><%= choice.name %> <% if choice.isDefault %>(Default)<% end %></h4>
+
+        <p><%= md2html(choice.description) %></p>
+
+        <p><%= md2html(choice.notes) %></p>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if device.receivers %>
+  <h2 id="receivers">Receivers</h2>
+
+  <p><%= device.name %> has the following receivers:</p>
+
+  <% device.receivers.each do |receiver| %>
+    <h3><%= receiver.name %></h3>
+
+    <p><%= md2html(receiver.description) %></p>
+
+    <p><%= md2html(receiver.notes) %></p>
+  <% end %>
+<% end %>
+
+<% if device.transmitters %>
+  <h2 id="transmitters">Transmitters</h2>
+
+  <p><%= device.name %> has the following transmitters:</p>
+
+  <% device.transmitters.each do |transmitter| %>
+    <h3><%= transmitter.name %></h3>
+
+    <p><%= md2html(transmitter.description) %></p>
+
+    <p><%= md2html(transmitter.notes) %></p>
+  <% end %>
+<% end %>
