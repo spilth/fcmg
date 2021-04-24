@@ -1,3 +1,6 @@
+<% content_for :title do %>Device: <%= device.name %><% end %>
+<% content_for :description do %><%= device.description %><% end %>
+
 <% content_for :on_this_page do %>
   <h6>On this page</h6>
   <ul class="list-unstyled">
@@ -14,14 +17,6 @@
     <% end %>
   </ul>
 <% end %>
-
-<% content_for :page_title do %>
-  Device: <%= device.name %>
-<% end %>
-
-<h1>Device: <%= device.name %></h1>
-
-<p class="lead"><%= md2html(device.description) %></p>
 
 <% if device.categories %>
   <% device.categories.each do |category| %>

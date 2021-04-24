@@ -1,12 +1,16 @@
-<% content_for :page_title do %>
-  Recipe: <%= recipe.name %>
+<% content_for :title do %>Recipe: <%= recipe.name %><% end %>
+<% content_for :description do %><%= recipe.description %><% end %>
+
+<% content_for :on_this_page do %>
+  <h6>On this page</h6>
+  <ul class="list-unstyled">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#steps">Steps</a></li>
+    <li><a href="#exercises">Exercises</a></li>
+  </ul>
 <% end %>
 
-<h1>Recipe: <%= recipe.name %></h1>
-
-<p class="lead"><%= recipe.description %></p>
-
-<h2>Overview</h2>
+<h2 id="overview">Overview</h2>
 
 <%= md2html(recipe.overview) %>
 
@@ -14,10 +18,10 @@
   <%= image_tag recipe.screenshot, class: "img img-fluid img-thumgnail" %>
 <% end %>
 
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 
 <%= md2html(recipe.steps) %>
 
-<h2>Exercises</h2>
+<h2 id="exercises">Exercises</h2>
 
 <%= md2html(recipe.exercises) %>
