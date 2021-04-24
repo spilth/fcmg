@@ -13,8 +13,7 @@
 <h5>Recipes</h5>
 
 <ul class="list-unstyled">
-  <li><a href="/recipes/button-billboard">Press a Button to show a Billboard</a></li>
-  <li><a href="/recipes/interactive-prop">Make an Interactive Prop</a></li>
-  <li><a href="/recipes/jewel-hungry-door-lock">Jewel Hungry Door Lock</a></li>
-  <li><a href="/recipes/treasure-map">Treasure Map</a></li>
+  <% data.recipes.sort.each do |recipe| %>
+    <li><%= link_to recipe[1].name, "/recipes/#{recipe[0]}" %></li>
+  <% end %>
 </ul>

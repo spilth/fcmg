@@ -1,0 +1,23 @@
+<% content_for :page_title do %>
+  Recipe: <%= recipe.name %>
+<% end %>
+
+<h1>Recipe: <%= recipe.name %></h1>
+
+<p class="lead"><%= recipe.description %></p>
+
+<h2>Overview</h2>
+
+<%= md2html(recipe.overview) %>
+
+<% if recipe.screenshot %>
+  <%= image_tag recipe.screenshot, class: "img img-fluid img-thumgnail" %>
+<% end %>
+
+<h2>Steps</h2>
+
+<%= md2html(recipe.steps) %>
+
+<h2>Exercises</h2>
+
+<%= md2html(recipe.exercises) %>

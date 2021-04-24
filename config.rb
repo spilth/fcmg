@@ -12,6 +12,14 @@ data.devices.each do |device|
         ignore: true
 end
 
+data.recipes.each do |recipe|
+  proxy "/recipes/#{recipe[0]}/index.html",
+        "/templates/recipe.html",
+        locals: { recipe: recipe[1] },
+        layout: :recipe,
+        ignore: true
+end
+
 helpers do
   def md2html(markdown)
     Kramdown::Document.new(markdown).to_html if markdown

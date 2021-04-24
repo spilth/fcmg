@@ -43,10 +43,11 @@
   <p>The following recipes use <%= device.name %>:</p>
 
   <ul>
-    <% device.recipes.each do |recipes| %>
-      <li>
-        <%= link_to recipes.name, recipes.path %></li>
+  <% data.recipes.each do |recipe| %>
+    <% if recipe[1].devices.include?(device.name) %>
+      <li><%= link_to recipe[1].name, "/recipes/#{recipe[0]}" %></li>
     <% end %>
+  <% end %>
   </ul>
 <% end %>
 
@@ -64,7 +65,9 @@
 
     <% if option.choices %>
       <% option.choices.each do |choice| %>
-        <h4><%= choice.name %> <% if choice.isDefault %>(Default)<% end %></h4>
+        <h4><%= choice.name %>
+          <% if choice.isDefault %>(Default)
+          <% end %></h4>
 
         <p><%= md2html(choice.description) %></p>
 
