@@ -4,9 +4,6 @@ inventory_image: /images/devices/conditional-button.png
 categories:
   - Objective
   - Triggers
-recipes:
-  - name: Jewel Hungry Door Lock
-    path: /recipes/jewel-hungry-door-lock
 options:
   - name: Team
     description: Specifies which team owns the device.

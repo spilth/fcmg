@@ -3,9 +3,6 @@ description: Allows custom Points of Interest and markers to be placed on the Mi
 inventory_image: /images/devices/map-indicator.png
 categories:
   - Informational
-recipes:
-  - name: Treasure Map
-    path: /recipes/treasure-map
 options:
   - name: Enabled On Game Start
     description: Determines whether the device is enabled when the game starts.

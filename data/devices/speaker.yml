@@ -3,9 +3,6 @@ description: Use this to add sound effects and music to your game.
 inventory_image: /images/devices/speaker.png
 categories:
   - Audio
-recipes:
-  - name: Jewel Hungry Door Lock
-    path: /recipes/jewel-hungry-door-lock
 options:
   - name: Audio Selection
     description: Determines the sound to be played when the device is activated.

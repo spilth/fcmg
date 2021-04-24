@@ -4,9 +4,6 @@ inventory_image: /images/devices/lock-device.png
 categories:
   - Objective
   - Triggers
-recipes:
-  - name: Jewel Hungry Door Lock
-    path: /recipes/jewel-hungry-door-lock
 options:
   - name: Initial Door Position
     description: Determines whether the door is open or closed at game start.

@@ -21,13 +21,6 @@ inventory_image: /images/devices/button.png
 placement_image: /images/devices/placement_button.png
 categories:
   - Triggers
-recipes:
-  - name: Press a Button to show a Billboard
-    path: /recipes/button-billboard
-  - name: Make an Interactive Prop
-    path: /recipes/interactive-prop
-  - name: Treasure Map
-    path: /recipes/treasure-map
 options:
   - name: Interact Time
     description: Determines the length of interaction required to activate the device.

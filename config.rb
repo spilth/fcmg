@@ -1,14 +1,9 @@
 activate :directory_indexes
 
-set :layout, :index
-
-page "recipes/*", layout: :recipe
-
 data.devices.each do |device|
   proxy "/devices/#{device[0]}/index.html",
         "/templates/device-guide.html",
         locals: { device: device[1] },
-        layout: :device_guide,
         ignore: true
 end
 
@@ -16,7 +11,6 @@ data.recipes.each do |recipe|
   proxy "/recipes/#{recipe[0]}/index.html",
         "/templates/recipe.html",
         locals: { recipe: recipe[1] },
-        layout: :recipe,
         ignore: true
 end
 
