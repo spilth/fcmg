@@ -1,0 +1,24 @@
+---
+title: My Island
+---
+
+<% data.island.each do |section| %>
+  <h2><%= section.name %></h2>
+
+  <p><%= md2html(section.description) %></p>
+
+  <% section.options.each do |option| %>
+    <h3><%= option.name %></h3>
+
+    <p><%= md2html(option.description) %></p>
+
+    <% if option.choices %>
+      <% option.choices.each do |choice| %>
+        <h4><%= choice.name %></h4>
+
+        <p><%= md2html(choice.description) %></p>
+
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

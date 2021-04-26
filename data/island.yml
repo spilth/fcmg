@@ -1,0 +1,172 @@
+- name: Game
+  options:
+    - name: Voice Chat
+      description: Determines whether voice chat should be allowed within teams, between all players, or not at all.
+      choices:
+        - name: All
+          description: All players are allowed to voice chat with each other.
+        - name: None
+          description: No players are allowed to voice chat with each other.
+        - name: Team
+          description: Team members are allowed to voice chat with each other.
+    - name: Max Players
+      description: Maximum number of players allowed into the game.
+      choices:
+        - name: 1..16, 20, 24, 30, 32, 40, 48, 50
+    - name: Teams
+      description: Detemines how many teams players will be divided into.
+      choices:
+        - name: Free For All
+          description: There are no teams an all players compete against each other.
+        - name: Cooperative
+          description: There is only one team and all players are playing together.
+        - name: Custom
+          description: Players can use the switch team menu options to assign teams
+        - name: 2..10, 16
+    - name: Team Size
+      description: Number of players per team
+      choices:
+        - name: Split Evenly
+          description: Evenly divides the number of players between the number of teams
+        - name: Dynamic
+          description: Allows devices to set the team size, allows for asymetric teams and other team configurations
+        - name: 1..4
+    - name: Matchmaking Type
+      description: Determines the type of match used on the island.
+      choices:
+        - name: Flexible Teams
+          description: Allows party members to be on any team to matchmake quickly and keep games full.
+        - name: Off
+          description: Disabled matchmaking on the island.
+    - name: Matchmaking Privacy
+    - name: Default Class Identifier
+    - name: Revert To Default Class At
+    - name: Spawn Limit
+    - name: After Last Spawn Go To
+    - name: Total Rounds
+    - name: Team Rotation
+    - name: End Game On Match Point Win
+    - name: Team Visual Determine At
+    - name: Time Limit
+    - name: Fastest Time Win
+    - name: All Teams Must Finish
+    - name: Win Condition
+    - name: Eliminations To End
+    - name: Creature Eliminations To End
+    - name: Objective To End
+    - name: Collect Items To End
+    - name: Score To End
+    - name: Last Standing Ends Game
+    - name: Join In Progress
+    - name: Spawn Location
+    - name: Respawn Type
+    - name: Post-Game Spawn Location
+    - name: Only Allow Respawn If Pads Found
+    - name: Autostart
+    - name: Game Start Countdown
+    - name: Vehicle Trick Score Multiplier
+    - name: Keep Player Built Structures Between Rounds
+    - name: Allow Out Of Bounds
+    - name: Allow Spectating Other Team
+    - name: Elimination Score
+    - name: Assist Score
+    - name: Allow Friendly Fire
+    - name: Player Collision
+- name: Settings
+  options:
+    - name: Time of Day
+    - name: Camera Filter
+    - name: Light Brightness
+    - name: Light Color
+    - name: Fog Thickness
+    - name: Fog Color
+    - name: Starting Health
+    - name: Max Health
+    - name: Starting Shields
+    - name: Max Shields
+    - name: Infinite Ammo
+    - name: Infinite Resources
+    - name: Maximum Building Resources
+    - name: Harvest Style
+    - name: Harvest Multiplier
+    - name: Allow Aim Assist
+    - name: Allow Building
+    - name: Allowed to Edit
+    - name: Building Can Destroy Environment
+    - name: Environment Damage
+    - name: Structure Damage
+    - name: Weapon Destruction
+    - name: Pickaxe Destruction
+    - name: PVP Pickaxe Damage
+    - name: Pickaxe Ranger Multiplier
+    - name: Start with Pickaxe
+    - name: Down But Not Out
+    - name: Eliminated Player's Items
+    - name: Allow Item Drop
+    - name: Allow Item Pick Up
+    - name: Auto Pickup Pickups
+    - name: Auto Pickup Ammo
+    - name: Auto Pickup Consumables
+    - name: Auto Pickup Gadgets
+    - name: Auto Pickup Traps
+    - name: Auto Pickup Weapons
+    - name: Auto Pickup World Resources
+    - name: Respawn Time
+    - name: Spawn Immunity Time
+    - name: Fall Damage
+    - name: Gravity
+    - name: Jump Fatigue
+    - name: Glider Redeploy
+    - name: Player Flught
+    - name: Player Flight Sprint
+    - name: Flight Speed
+    - name: Player Names & Locations
+    - name: Health Granted on Elimination
+    - name: Wood Granted on Elimination
+    - name: Stone Granted on Elimination
+    - name: Metal Granted on Elminiation
+    - name: Gold Granted on Elimination
+    - name: Self-Damage On Hit Amount
+    - name: Self-Damage Only On Non-Zero Damage
+    - name: Self-Damage Target Filter
+    - name: Self-Damage Weapon Filter
+    - name: Allow Manual Respawning
+    - name: Show Wood Resource Count
+    - name: Show Stone Resource Count
+    - name: Show Metal Resource Count
+    - name: Show Gold Resource Count
+    - name: Maximum Equipment Slots
+    - name: Player Elimination Audio
+- name: UI
+  options:
+    - name: Timer Direction
+    - name: Game Winner Time
+    - name: Game Score Display Time
+    - name: Round Winner Display Time
+    - name: Round Score Display Time
+    - name: HUD Info Type
+    - name: Show Cumulative Stat Value on HUD
+    - name: Show Resource Feed on Eliminations
+    - name: Scoreboard Win Condition
+    - name: Scoreboard Tiebreaker 1
+    - name: Scoreboard Tiebreaker 2
+    - name: Scoreboard Tiebreaker 3
+    - name: Scoreboard Tiebreaker 4
+    - name: Map Screen Display
+    - name: Show Cumulative Scoreboard
+    - name: Show Island Code Watermark
+    - name: Game End Callout
+    - name: Victory Sound
+    - name: Defeat Sound
+    - name: Draw Sound
+    - name: Custom Victory Callout
+- name: Description
+  options:
+    - name: Name
+    - name: Description Part 1
+    - name: Description Part 2
+    - name: Description Part 3
+    - name: Tags
+- name: Permissions
+  options:
+    - name: Island Edit And Copy Permissions
