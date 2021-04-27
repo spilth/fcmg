@@ -5,7 +5,9 @@
   <h6>On this page</h6>
   <ul class="list-unstyled">
     <li><a href="#overview">Overview</a></li>
-    <li><a href="#recipes">Recipes</a></li>
+    <% if device_recipes(device).present? %>
+      <li><a href="#recipes">Recipes</a></li>
+    <% end %>
     <% if device.options %>
       <li><a href="#options">Device Options</a></li>
     <% end %>
@@ -30,17 +32,17 @@
 
 <p><%= md2html(device.notes) %></p>
 
-<h2 id="recipes">Recipes</h2>
+<% if device_recipes(device).present? %>
+  <h2 id="recipes">Recipes</h2>
 
-<p>The following recipes use <%= device.name %>:</p>
+  <p>The following recipes use <%= device.name %>:</p>
 
-<ul>
-  <% data.recipes.each do |recipe| %>
-    <% if recipe[1].devices.include?(device.name) %>
+  <ul>
+    <% device_recipes(device).each do |recipe| %>
       <li><%= link_to recipe[1].name, "/recipes/#{recipe[0]}" %></li>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
+<% end %>
 
 <% if device.options %>
   <h2 id="options">Device Options</h2>

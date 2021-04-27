@@ -18,4 +18,8 @@ helpers do
   def md2html(markdown)
     Kramdown::Document.new(markdown).to_html if markdown
   end
+
+  def device_recipes(device)
+    data.recipes.select { |_, value| value.devices.include?(device.name) }
+  end
 end
