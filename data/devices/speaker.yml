@@ -45,7 +45,7 @@ options:
         isDefault: True
         description: The device will play a sound when hit by the player.
         notes: This can be useful for previewing the sound that will be played while in **Creative Mode**.
-      - name:  No
+      - name: "No"
         description: The device will NOT play a sound when hit by the player.
   - name: Visible in Game
     description: Determines whether the device will be visible during the game.
