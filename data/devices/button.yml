@@ -63,7 +63,7 @@ options:
   - name: Delay
     description: Determines the length of time the device will wait between being triggered and sending a signal.
     choices:
-      - name: "No"
+      - name: None
         description: A signal is sent immediately.
         isDefault: True
       - name: 1..3, 5, 10, 20, 30 Seconds, 1..3, 5, 10, 15, 20 Minutes
@@ -71,7 +71,7 @@ options:
   - name: Reset Delay
     description: Specifies the length of time the device must wait after sending a signal before it can be triggered again.
     choices:
-      - name: "No"
+      - name: None
         isDefault: True
         description: There is no delay and the button can be used again immediately.
       - name: 1..3, 5, 10, 20, 30 Seconds, 1..3, 5, 10, 15, 20 Minutes

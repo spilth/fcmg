@@ -29,7 +29,7 @@ options:
   - name: Enabled During Phase
     description: Determines the game phases during which the device will be enabled. Pre-Game includes all phases to the Game starting (the waiting for players lobby on Feature Islands and the Game Start Countdown).
     choices:
-      - name: "No"
+      - name: None
         description: The device is not enabled during any phase.
       - name: All
         isDefault: True
