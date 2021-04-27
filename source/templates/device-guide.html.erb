@@ -1,10 +1,14 @@
-<% content_for :title do %>Device: <%= device.name %><% end %>
-<% content_for :description do %><%= device.description %><% end %>
+<% content_for :title do %>Device: <%= device.name %>
+<% end %>
+<% content_for :description do %><%= device.description %>
+<% end %>
 
 <% content_for :on_this_page do %>
   <h6>On this page</h6>
   <ul class="list-unstyled">
-    <li><a href="#overview">Overview</a></li>
+    <% if device.notes %>
+      <li><a href="#notes">Notes</a></li>
+    <% end %>
     <% if device_recipes(device).present? %>
       <li><a href="#recipes">Recipes</a></li>
     <% end %>
@@ -21,21 +25,27 @@
 <% end %>
 
 <% if device.categories %>
-  <% device.categories.each do |category| %>
-    <span class="badge rounded-pill bg-primary"><%= category %></span>
-  <% end %>
+  <p>
+    <% device.categories.each do |category| %>
+      <span class="badge rounded-pill bg-primary"><%= category %></span>
+    <% end %>
+  </p>
 <% end %>
 
-<h2 id="overview">Overview</h2>
+<% if device.inventory_image %>
+  <%= image_tag device.inventory_image, class: "img img-fluid img-thumbnail", width: 256, height: 256 %>
+<% end %>
 
-<%= image_tag device.inventory_image, class: "img img-fluid img-thumgnail" %>
+<% if device.notes %>
+  <h2 id="notes">Notes</h2>
 
-<p><%= md2html(device.notes) %></p>
+  <%= md2html(device.notes) %>
+<% end %>
 
 <% if device_recipes(device).present? %>
   <h2 id="recipes">Recipes</h2>
 
-  <p>The following recipes use <%= device.name %>:</p>
+  <p>The following recipes use a <%= device.name %>:</p>
 
   <ul>
     <% device_recipes(device).each do |recipe| %>
@@ -47,53 +57,107 @@
 <% if device.options %>
   <h2 id="options">Device Options</h2>
 
-  <p><%= device.name %> has the following options:</p>
+  <small>Note: The default value for an option is highlighted.</small>
 
   <% device.options.each do |option| %>
     <h3><%= option.name %></h3>
 
-    <p><%= md2html(option.description) %></p>
-
-    <p><%= md2html(option.notes) %></p>
+    <%= md2html(option.description) %>
 
     <% if option.choices %>
-      <% option.choices.each do |choice| %>
-        <h4><%= choice.name %>
-          <% if choice.isDefault %>(Default)
-          <% end %></h4>
+      <table class="table table-sm table-bordered">
+        <colgroup>
+          <col class="col-md-2">
+          <col class="col-md-4">
+        </colgroup>
+        <thead>
+        <tr>
+          <th>Value</th>
+          <th>Description &amp; Notes</th>
+        </tr>
+        </thead>
 
-        <p><%= md2html(choice.description) %></p>
-
-        <p><%= md2html(choice.notes) %></p>
-      <% end %>
+        <tbody>
+        <% option.choices.each do |choice| %>
+          <tr class="<%= "table-secondary" if choice.isDefault %>">
+            <td>
+              <%= choice.name %>
+            </td>
+            <td>
+              <i><%= md2html(choice.description) %></i>
+              <%= md2html(choice.notes) %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
     <% end %>
+
+    <%= md2html(option.notes) %>
+
   <% end %>
 <% end %>
 
 <% if device.receivers %>
   <h2 id="receivers">Receivers</h2>
 
-  <p><%= device.name %> has the following receivers:</p>
+  <table class="table table-sm table-bordered">
+    <colgroup>
+      <col class="col-md-2">
+      <col class="col-md-4">
+    </colgroup>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description &amp; Notes</th>
+    </tr>
+    </thead>
+    <tbody>
 
-  <% device.receivers.each do |receiver| %>
-    <h3><%= receiver.name %></h3>
+    <% device.receivers.each do |receiver| %>
+      <tr>
+        <td>
+          <%= receiver.name %>
+        </td>
+        <td>
+          <i><%= md2html(receiver.description) %></i>
 
-    <p><%= md2html(receiver.description) %></p>
-
-    <p><%= md2html(receiver.notes) %></p>
-  <% end %>
+          <%= md2html(receiver.notes) %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 <% end %>
 
 <% if device.transmitters %>
   <h2 id="transmitters">Transmitters</h2>
 
-  <p><%= device.name %> has the following transmitters:</p>
+  <table class="table table-sm table-bordered">
+    <colgroup>
+      <col class="col-md-2">
+      <col class="col-md-4">
+    </colgroup>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description &amp; Notes</th>
+    </tr>
+    </thead>
+    <tbody>
 
-  <% device.transmitters.each do |transmitter| %>
-    <h3><%= transmitter.name %></h3>
+    <% device.transmitters.each do |transmitter| %>
+      <tr>
+        <td>
+          <%= transmitter.name %>
+        </td>
+        <td>
+          <i><%= md2html(transmitter.description) %></i>
 
-    <p><%= md2html(transmitter.description) %></p>
-
-    <p><%= md2html(transmitter.notes) %></p>
-  <% end %>
+          <%= md2html(transmitter.notes) %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 <% end %>
