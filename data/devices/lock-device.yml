@@ -31,10 +31,10 @@ options:
   - name: Starts Locked
     description: Determines whether the door is locked or unlocked at Game Start.
     choices:
-      - name: Yes
+      - name: "Yes"
         isDefault: True
         description: The Lock Device will be locked at Game Start.
-      - name: No
+      - name: "No"
         description: The Lock Device will be unlocked at Game Start.
 receivers:
   - name: Unlock when Receiving From

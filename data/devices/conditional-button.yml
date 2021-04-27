@@ -50,26 +50,26 @@ options:
     description: Each icon has an alternate version which can be displayed when the button is successfully activated. Use this to choose whether to switch to the alternate icon on activation.
     notes: This can help communicate what will happen when the button is activated. For example the door starts off as **Locked** but will become **Unlocked** if the correct items are given to the button.
     choices:
-      - name: Yes
+      - name: "Yes"
         description: Switch to the alternate icon after the button is activated.
-      - name: No
+      - name: "No"
         isDefault: True
         description: Do not switch to the alternate icon after the button is activated.
   - name: Disable After Use
     description: Sets the device to become disabled after successful activation. The device can be reset or re-enabled via receivers.
     choices:
-      - name: Yes
+      - name: "Yes"
         description: The button is disabled after it is activated.
-      - name: No
+      - name: "No"
         isDefault: True
         description: The button is NOT disabled after it is activated.
   - name: Show Key Item
     description: Determines whether the device should display a hologram of the item type that is required to unlock it.
     choices:
-      - name: Yes
+      - name: "Yes"
         isDefault: True
         description: Show a hologram of the required item type on the device.
-      - name: No
+      - name: "No"
         description: Do not show a hologram of the required item type on the device.
   - name: Key Items Required
     description: Sets the quantity of the key items required to activate the button.
@@ -81,26 +81,26 @@ options:
   - name: Consume Key Items
     description: Determines whether key items are removed from inventory when the button is pressed.
     choices:
-      - name: Yes
+      - name: "Yes"
         isDefault: True
         description: The items are removed from the player's inventory when the button is pressed.
-      - name: No
+      - name: "No"
         description: The items are NOT removed from the player's inventory when the button is pressed.
   - name: All Key Items Required at Once
     description: Determines whether the full quantity of items must be in the player's inventory at once or whether they can deliver them in batches. Only has an effect if Consume Key Items is set to **On**.
     choices:
-      - name: Yes
+      - name: "Yes"
         isDefault: True
         description: The player must have the required number of items all at once.
-      - name: No
+      - name: "No"
         description: The player can delivery the item in batches over time.
   - name: Enabled at Game Start
     description: Determines whether the device is enabled when the game starts. Disabled devices ignore all events except being Enabled.
     choices:
-      - name: Yes
+      - name: "Yes"
         isDefault: True
         description: The button is enabled when the game starts.
-      - name: No
+      - name: "No"
         description: The button is disabled when the game starts.
 receivers:
   - name: Enabled When Receiving From

@@ -63,7 +63,7 @@ options:
   - name: Delay
     description: Determines the length of time the device will wait between being triggered and sending a signal.
     choices:
-      - name: None
+      - name: "No"
         description: A signal is sent immediately.
         isDefault: True
       - name: 1..3, 5, 10, 20, 30 Seconds, 1..3, 5, 10, 15, 20 Minutes
@@ -71,7 +71,7 @@ options:
   - name: Reset Delay
     description: Specifies the length of time the device must wait after sending a signal before it can be triggered again.
     choices:
-      - name: None
+      - name: "No"
         isDefault: True
         description: There is no delay and the button can be used again immediately.
       - name: 1..3, 5, 10, 20, 30 Seconds, 1..3, 5, 10, 15, 20 Minutes
@@ -100,10 +100,10 @@ options:
     description: Determines whether the device will be visible during the game.
     notes: Making the button invisible, placing it on a prop and increasing the **Interaction Radius** can make a prop appear interactive.
     choices:
-      - name: Yes
+      - name: "Yes"
         isDefault: True
         description: Players will be able to see the button during gameplay.
-      - name: No
+      - name: "No"
         description: Players will not be able to see the button during gameplay but may still be able to interact with it.
   - name: Interaction Radius
     description: Allows players to interact by looking at any point within a radius of the specified size, rather than having to look directly at the button. Use in conjunction with the Visibility setting to make it appear as though players are interacting with other props.

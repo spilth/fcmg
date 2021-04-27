@@ -7,9 +7,9 @@ options:
   - name: Enabled On Game Start
     description: Determines whether the device is enabled when the game starts.
     choices:
-      - name: No
+      - name: "No"
         description: The device is disabled when the game starts.
-      - name: Yes
+      - name: "Yes"
         isDefault: True
         description: The device is enabled when the game starts.
   - name: Team
