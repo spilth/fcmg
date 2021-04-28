@@ -1,0 +1,107 @@
+name: Save Point
+description: Saves and loads data for players that will persist across multiple sessions.
+categories:
+  - Informational
+  - Player
+  - Triggers
+options:
+  - name: Enabled During Phase
+    description: Detemines the game phases during which the device will be enabled. Pre-Game includes all phases prior to the Game starting (the waiting for players lobby on Feature Islands and the Game Start Countdown).
+    choices:
+      - name: None
+      - name: All
+        isDefault: true
+      - name: Pre-Game Only
+      - name: Gameplay Only
+  - name: Auto Save
+    description: Determines whether the player's data is saved automatically as they play.
+    choices:
+      - name: "Yes"
+        description: The player's data is automatically saved as they play.
+        isDefault: true
+      - name: "No"
+        description: The player's data is only saved when a signal is sent to **Save Player When Receiving From**.
+  - name: Auto-Load
+    description: Determines whether the player's data is auto-loaded.
+    choices:
+      - name: Initial Spawn
+        description: The player's data is automatically loaded when they first spawn on the island.
+        isDefault: true
+      - name: Every Spawn
+        description: The player's data is automatically loaded every time they spawn on the island.
+      - name: Off
+        description: The player's data is only loaded when a signal is sent to **Load Player When Receiving From**.
+  - name: Save Health / Shields
+    description: Save the player's current health and shield as part of the data.
+    choices:
+      - name: "Yes"
+      - name: "No"
+        isDefault: true
+  - name: Save Score
+    description: Saves all the player's current scoreboard data.
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+  - name: Save Inventory
+    description: Saves the player's current inventory.
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+  - name: Save Resources
+    description: Saves the player's current resources as part of the data.
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+  - name: Save Checkpoint
+    description: Saves the player's checkpoint data so that they will respawn at the last checkpoint they activated.
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+  - name: Save Player Location
+    description: Saves the player's location so that they will respawn at the last position saved.
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+  - name: Save Team
+    description: Saves the player's current Team number. Player will be assigned to that team upon loading, triggering any team settings device related.
+    choices:
+      - name: "Yes"
+      - name: "No"
+        isDefault: true
+  - name: Save Class
+    description: Saves the player's current Class number. Player will be assigned to that class upon loading, triggering the relevant class designer device.
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+  - name: Allow Player To Clear Data
+    description: Allow Players to clear their saved data.
+    choices:
+      - name: "Yes"
+        notes: This will add a **Reset Progress** option to the Start menu for players which they can use to manually clear their data for the current island.
+      - name: "No"
+        isDefault: true
+receivers:
+  - name: Save Player When Receiving From
+    description: Saves data from a distance. Does nothing if interacted with from a dead player.
+  - name: Load Player When Receiving From
+    description: Loads the set player data when receiving a signal from this channel.
+  - name: Enable When Receiving From
+    description: Enables the device on receiving a signal from the selected channel.
+  - name: Disable When Receiving From
+    description: Disables the device on receiving a signal from the selected channel.
+  - name: Clear Data for Player When Receiving From
+    description: Clear any saved data for a specific player.
+  - name: Clear Data for All Players When Receiving From
+    description: Clear saved data for all players in the current session.
+
+transmitters:
+  - name: On Activation Transmit On
+    description: When data is saved, transmit on this channel.
+  - name: On Player Loaded Transmit On
+    description: When a player reloads save data, they'll send a message on this channel.
