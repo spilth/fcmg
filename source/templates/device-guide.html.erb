@@ -13,7 +13,14 @@
       <li><a href="#recipes">Recipes</a></li>
     <% end %>
     <% if device.options %>
-      <li><a href="#options">Device Options</a></li>
+      <li>
+        <a href="#options">Device Options</a>
+        <ul class="list-unstyled ms-3">
+          <% device.options.each_with_index do |option, index| %>
+            <li><a href="#<%= option.name.parameterize %>"><%= option.name %></a></li>
+          <% end %>
+        </ul>
+      </li>
     <% end %>
     <% if device.receivers %>
       <li><a href="#receivers">Receivers</a></li>
@@ -54,18 +61,28 @@
   </ul>
 <% end %>
 
+<% if device.videos %>
+  <h2 id="videos">Videos</h2>
+
+  <% device.videos.each do |video| %>
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= video %>" allowfullscreen></iframe>
+    </div>
+  <% end %>
+<% end %>
+
 <% if device.options %>
   <h2 id="options">Device Options</h2>
 
   <small>Note: The default value for an option is highlighted.</small>
 
   <% device.options.each do |option| %>
-    <h3><%= option.name %></h3>
+    <h3 id="<%= option.name.parameterize %>"><%= option.name %></h3>
 
     <%= md2html(option.description) %>
 
     <% if option.choices %>
-      <table class="table table-sm table-bordered">
+      <table class="table table-sm">
         <colgroup>
           <col class="col-md-2">
           <col class="col-md-4">
@@ -101,7 +118,7 @@
 <% if device.receivers %>
   <h2 id="receivers">Receivers</h2>
 
-  <table class="table table-sm table-bordered">
+  <table class="table table-sm">
     <colgroup>
       <col class="col-md-2">
       <col class="col-md-4">
@@ -133,7 +150,7 @@
 <% if device.transmitters %>
   <h2 id="transmitters">Transmitters</h2>
 
-  <table class="table table-sm table-bordered">
+  <table class="table table-sm">
     <colgroup>
       <col class="col-md-2">
       <col class="col-md-4">
