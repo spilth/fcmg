@@ -16,10 +16,10 @@ options:
   - name: Visible in Game
     description: Determines whether the device is visible during the game. This does affect its collision properties.
     choices:
-      - name: On
+      - name: "On"
         isDefault: True
         description: The Lock Device will be visible during the game.
-      - name: Off
+      - name: "Off"
         description: The Lock Device will NOT be visible during the game.
   - name: Color
     description: Changes the color of the device to help players tell them apart.

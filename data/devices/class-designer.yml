@@ -84,22 +84,22 @@ options:
     choices:
       - name: Don't Override
         isDefault: true
-      - name: On
-      - name: Off
+      - name: "On"
+      - name: "Off"
   - name: Infinite Ammo
     description: Determines whether players have infinite ammunication during the game.
     choices:
       - name: Don't Override
         isDefault: true
-      - name: On
-      - name: Off
+      - name: "On"
+      - name: "Off"
   - name: Infinite Resource
     description: Determines whether players have infinite building materials during the game.
     choices:
       - name: Don't Override
         isDefault: true
-      - name: On
-      - name: Off
+      - name: "On"
+      - name: "Off"
   - name: Elimated Player's Items
     description: Determines what happens to a player's items when they are elimated. Drop - Items are dropped on the ground. Keep - Items are retained. Delete - items are removed from the game.
     choices:
@@ -121,8 +121,8 @@ options:
     choices:
       - name: Don't Override
         isDefault: true
-      - name: On
-      - name: Off
+      - name: "On"
+      - name: "Off"
   - name: Gravity
     description: Sets the level of gravity that affects players during the game.
     choices:
@@ -138,15 +138,15 @@ options:
     choices:
       - name: Don't Override
         isDefault: true
-      - name: On
-      - name: Off
+      - name: "On"
+      - name: "Off"
   - name: Player Flight
     description: Determines whether players are able to fly during the game.
     choices:
       - name: Don't Override
         isDefault: true
-      - name: On
-      - name: Off
+      - name: "On"
+      - name: "Off"
   - name: Player Name & Location
     description: Determines whether player names and locations can be seen by other players.
     choices:
@@ -176,16 +176,16 @@ options:
     choices:
       - name: Don't Override
         isDefault: true
-      - name: On
-      - name: Off
+      - name: "On"
+      - name: "Off"
   - name: Down But Not Out
     description: Determines whether players can be put into Down But Not Out state. Default means that this will be determined automatically depending on team size.
     choices:
       - name: Don't Override
         isDefault: true
       - name: Default
-      - name: On
-      - name: Off
+      - name: "On"
+      - name: "Off"
   - name: Allow Building
     choices:
       - name: Don't Override

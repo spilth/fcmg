@@ -29,7 +29,7 @@ options:
         isDefault: true
       - name: Every Spawn
         description: The player's data is automatically loaded every time they spawn on the island.
-      - name: Off
+      - name: "Off"
         description: The player's data is only loaded when a signal is sent to **Load Player When Receiving From**.
   - name: Save Health / Shields
     description: Save the player's current health and shield as part of the data.
