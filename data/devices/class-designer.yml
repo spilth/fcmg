@@ -101,21 +101,27 @@ options:
       - name: "On"
       - name: "Off"
   - name: Elimated Player's Items
-    description: Determines what happens to a player's items when they are elimated. Drop - Items are dropped on the ground. Keep - Items are retained. Delete - items are removed from the game.
+    description: Determines what happens to a player's items when they are elimated.
     choices:
       - name: Don't Override
         isDefault: true
       - name: Drop
+        description: Items are dropped on the ground.
       - name: Keep
+        description: Items are retained.
       - name: Delete
+        description: Items are removed from the game.
   - name: Eliminated Player's Reosurces
-    description: Determines what happens to a player's resources when they are eliminated. Drop - Resources are dropped on the ground. Keep - Resources are reatined. Delete - Resources are removed from the game.
+    description: Determines what happens to a player's resources when they are eliminated.
     choices:
       - name: Don't Override
         isDefault: true
       - name: Drop
+        description: Resources are dropped on the ground.
       - name: Keep
+        description: Resources are reatined.
       - name: Delete
+        description: Resources are removed from the game.
   - name: Fall Damage
     description: Determines whether the players are affected by fall damage during the game.
     choices:
