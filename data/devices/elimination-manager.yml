@@ -10,6 +10,7 @@ notes: |
 
   - Player A is the **Eliminating Actor** (the killer)
   - Player B is the **Eliminated Actor** (the killed)
+  - If a player gets themselves killed they are both actors.
 
   An **Elimination Manager** uses the **Team** and **Class** of the **Eliminated Actor** to determine if it should be activated based on the values of **Activating Team** and **Class Identifier**. This allows you to use multiple Elimination Managers to target different Teams and/or Classes.
 
