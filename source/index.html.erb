@@ -3,12 +3,43 @@ title: Welcome!
 description: This site aims to be a guide for creating maps in Fortnite Creative Mode. It will focus on understanding all the Devices in the game and how to build game mechanics with them.
 ---
 
-<h2>Contents</h2>
+<h2>Device Guides</h2>
 
-<%= partial "toc" %>
+<table class="table table-sm">
+  <colgroup>
+    <col class="col-md-4">
+    <col class="col-md-8">
+  </colgroup>
+  <tbody>
+  <% data.devices.sort.each do |device| %>
+    <tr>
+      <td><%= link_to device[1].name, "/devices/#{device[0]}" %></td>
+      <td><%= device[1].description %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h2>Recipes</h2>
+
+<table class="table table-sm">
+  <colgroup>
+    <col class="col-md-4">
+    <col class="col-md-8">
+  </colgroup>
+  <tbody>
+  <% data.recipes.sort.each do |recipes| %>
+    <tr>
+      <td><%= link_to recipes[1].name, "/recipes/#{recipes[0]}" %></td>
+      <td><%= recipes[1].description %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 
 <h2>Contributing</h2>
 
 <p>If you would like to contribute to this project, please contact fcmg@spilth.org.</p>
 
-<p>You can find this site's source code at <a href="https://github.com/spilth/fcmg">https://github.com/spilth/fcmg</a>.</p>
+<p>You can find this site's source code at <a href="https://github.com/spilth/fcmg">https://github.com/spilth/fcmg</a>.
+</p>
