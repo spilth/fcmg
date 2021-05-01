@@ -12,6 +12,9 @@
     <% if device_recipes(device).present? %>
       <li><a href="#recipes">Recipes</a></li>
     <% end %>
+    <% if device.videos %>
+      <li><a href="#videos">Videos</a></li>
+    <% end %>
     <% if device.options %>
       <li>
         <a href="#options">Device Options</a>

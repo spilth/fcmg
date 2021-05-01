@@ -1,9 +1,13 @@
 name: Save Point
 description: Saves and loads data for players that will persist across multiple sessions.
+notes: |
+  - Saved data does not transfer from the unpublished version of an island to the published version.
 categories:
   - Informational
   - Player
   - Triggers
+videos:
+  - xtQRWp1JnqE
 options:
   - name: Enabled During Phase
     description: Detemines the game phases during which the device will be enabled. Pre-Game includes all phases prior to the Game starting (the waiting for players lobby on Feature Islands and the Game Start Countdown).
