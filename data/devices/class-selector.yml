@@ -1,0 +1,102 @@
+name: Class Selector
+description: Creates a zone that switches players to a specific Class
+inventory_image: /images/devices/class-selector.png
+options:
+  - name: Class to Switch to
+    description: Determines which class the player should switch to.
+    notes: This is an ID that should reference an ID defined in a **Class Designer** in the map.
+    choices:
+      - name: None
+      - name: Do not switch
+      - name: 1..16
+  - name: Team To Switch To
+    description: Determines which team the player will switch to.
+    choices:
+      - name: None
+      - name: Do not switch
+      - name: 1..16
+  - name: Activating Team
+    descriptoin: Determines which team can activate the device.
+    choices:
+      - name: Any
+      - name: 1..16
+  - name: Time to Switch
+    description: Determines the delay between activating the device and switch Class or team.
+    choices:
+      - name: Instant
+      - name: 1..10, 15, 20, 25, 30 Seconds
+  - name: Respawn Player On Switch
+    description: Determines whether the device should cause players to respawn on switching.
+    choices:
+      - name: "Yes"
+      - name: "No"
+        isDefault: true
+  - name: Restore Health and Shields on Switch
+    description: Determines whether the device will set player health and shidles to full after switching.
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+  - name: Clear Items on Switch
+    description: Determines whether items should be removed from the player's inventory when the class switch is applies.
+    choices:
+      - name: All Items
+      - name: Class Items Only
+        isDefault: true
+  - name: Size of Volume
+    description: Sets the effective area of the device.
+    choices:
+      - name: 0.5, 1 (Default), 2, 3, 4, 5, 10, 15, 20, 30, 40, 50 Meters
+  - name: Volume Visible in Game
+    description: Determines whether the device volume is visible during the game. This does not affect its collision properties.
+    choices:
+      - name: "On"
+        isDefault: true
+      - name: "Off"
+  - name: Visible in Game
+    description: Determines whether the device is visible during the game. This does affect its collision properties.
+    choices:
+      - name: "On"
+        isDefault: true
+      - name: "Off"
+  - name: Accent Color
+    description: Sets the color of the base plate and surrounding field.
+    choices:
+      - name: Team Relationship
+      - name: Team Color
+      - name: White, Sky Blue, Red-Orange, Golden, Apple Green, Fuchsia, Orange, Aquamarine, Beige, Purple, Neon Green, Cerulean, Silver, Aqua (Default), Pink, Green
+  - name: Enabled During Phase
+    description: Determines the game phases during which the device will be enabled.
+    choices:
+      - name: None
+      - name: All
+      - name: Pre-Game Only
+        description: Inclues all phases prior to the Game starting (the waiting for players lobby on Feature Island and the Game Start Countdown)
+      - name: Gameplay Only
+  - name: Activation Audio
+    description: Determines whether the Class Selector shoudl play audio effects when activated.
+    choices:
+      - name: "On"
+        isDefault: true
+      - name: "Off"
+  - name: Zone Audio
+    description: Determines whether the Class Selector should play audio effects when players enter the zone.
+    choices:
+      - name: "On"
+        isDefault: true
+      - name: "Off"
+receivers:
+  - name: Enable When Receiving From
+    description: Enables the device on receiving a signal from the selected channel.
+  - name: Disable When Receiving From
+    description: Disables the device on receiving a signal from the selected channel.
+  - name: Change Player to Class When Receiving From
+    description: Changes the instigating player to the class specified by the device on receiving a signal from the selected channel. Will switch even if the player is within the class switch cooldown.
+  - name: Change Player to Team When Receiving From
+    description: Changes the instigating player to the team specified by the device on receiving a signal from the selected channel. Will switch even if the player is within the team switch cooldown.
+
+transmitters:
+  - name: When Class Switched Transmit On
+    description: Transmit a signal on the selected channel when a player switches class.
+  - name: When Team Switched Transmit On
+    description: Transmit a signal on the selected channel when a player switches team.
