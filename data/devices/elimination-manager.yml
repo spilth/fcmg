@@ -1,0 +1,77 @@
+name: Elimination Manager
+description: The Elimination Manager allows sett up item drops and triggers related to eliminations, along with filters for various attributes of the eliminated actor.
+inventory_image: /images/devices/elimination-manager.png
+categories:
+  - Triggers
+  - Item
+  - Settings
+notes: |
+  When Player A eliminates Player B:
+
+  - Player A is the **Eliminating Actor** (the killer)
+  - Player B is the **Eliminated Actor** (the killed)
+
+  An **Elimination Manager** uses the **Team** and **Class** of the **Eliminated Actor** to determine if it should be activated based on the values of **Activating Team** and **Class Identifier**. This allows you to use multiple Elimination Managers to target different Teams and/or Classes.
+
+  If items are added to Elimination Manager these items will spawn when a player is eliminated according to the settings of **Number of Items Dropped**, **Spawn on Self Elimination** and **Toss Items**.
+
+  It also has the ability to transmit signals when items are picked up and pass on separate signals for the **Eliminating Actor** (On Elimination) and the **Eliminated Actor** (When Eliminated)
+options:
+  - name: Enabled At Game Start
+    description: Determines whether the device is enabled when the game starts.
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+  - name: Visible during games
+    choices:
+      - name: "On"
+        isDefault: true
+      - name: "Off"
+  - name: Activating Team
+    description: Determine which team can activate the device.
+    choices:
+      - name: Any
+        description: A player from any Team can activated this device.
+        isDefault: true
+      - name: Team 1..16
+        description: Only players from the specified Team can activate this device.
+  - name: Class Identifier
+    choices:
+      - name: None
+        isDefault: true
+      - name: 1..16
+        description: Only a player with the specified Class can activate this device.
+  - name: Number of Items Dropped
+    description: Do we drop all the items tht have been added to this device or just some of them?
+    choices:
+      - name: All
+      - name: 1..5
+  - name: Spawn on Self-Elimination
+    description: Should these items spawn as a result of self-eliminations?
+    choices:
+      - name: "Yes"
+      - name: "No"
+        isDefault: true
+  - name: Toss Items
+    description: Should items toss from the spawn location?
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+
+receivers:
+  - name: Enable When Receiving From
+    description: Enable spawning of items
+  - name: Disable When Receiving From
+    description: Disable the spawning of items
+
+transmitters:
+  - name: When Item Picked Up Transmit On
+    description: Transmits a signal on the selected channel when the item is picked up by a player.
+  - name: When Eliminated Transmit On
+    description: Triggers the specified channel when an elimination occurs with the eliminated actor as the instigator.
+    notes: Use this transmitter to do something with the **Eliminated Actor**.
+  - name: On Elimination Transmit On
+    description: Triggers the specifiec channel when an elimination occurs with the eliminating actor as the instigator.
+    notes: Use this transmitter to do something with the **Eliminating Actor**.
