@@ -1,0 +1,92 @@
+name: Attribute Trigger
+description: Monitors a channel and transmits a signal based on various attributes of any player who triggers that channel.
+inventory_image: /images/devices/attribute-trigger.png
+categories:
+  - Triggers
+options:
+  - name: Check for Team
+    description: Determines which team the instigator must be a member of to pass this check.
+    choices:
+      - name: Any
+        isDefault: True
+      - name: Team 1..16
+  - name: Check for Class
+    description: Determines which Class the instigator must be to pass this check.
+    choices:
+      - name: None
+      - name: Any
+        isDefault: true
+      - name: 1..16
+  - name: Min Player Eliminations
+    description: Sets the minimum number of eliminations the instigator must have to pass this check.
+    choices:
+      - name: 0
+        isDefault: True
+      - name: 1..15, 20, 30, 50, 100
+  - name: Min Player Score
+    description: Sets the minimum player score that the instigator must have to pass this check.
+    choices:
+      - name: 0
+        isDefault: True
+      - name: 1..15, 20, 30, 50, 100
+  - name: Min Team Score
+    description: Sets the minimum score that the instigator's team must have to pass this check.
+    choices:
+      - name: 0
+        isDefault: True
+      - name: 1..15, 20, 30, 50, 100
+  - name: Enabled on Game Start
+    description: Determines whether the device is enabled when the game starts.
+    choices:
+      - name: Enabled
+        isDefault: true
+      - name: Disabled
+  - name: Times Can Trigger
+    description: THe number of times this device can trigger before being disabled.
+    choices:
+      - name: Infinite
+        isDefault: true
+      - name: 1..10
+  - name: Delay
+    description: Determines the length of time the device will wait between being triggered and sending a signal.
+    choices:
+      - name: None
+        description: A signal is sent immediately.
+        isDefault: True
+      - name: 1..3, 5, 10, 20, 30 Seconds, 1..3, 5, 10, 15, 20 Minutes
+        description: The trigger waits the specified time before sending a signal.
+  - name: Reset Delay
+    description: Specifies the length of time the device must wait after sending a signal before it can be triggered again.
+    choices:
+      - name: None
+        description: A signal is sent immediately.
+        isDefault: True
+      - name: 1..3, 5, 10, 20, 30 Seconds, 1..3, 5, 10, 15, 20 Minutes
+        description: The trigger waits the specified time before it can be triggered again.
+  - name: Visible in Game
+    description: Determines whether the device is visible during the game.
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+  - name: Trigger Sound
+    description: Determines whether a sound is played when the device is triggered.
+    choices:
+      - name: Enabled
+        isDefault: true
+      - name: Disabled
+
+receivers:
+  - name: Enable When Receiving From
+    description: Enables the device on receiving a signal from the selected channel.
+  - name: Disable When Receiving From
+    description: Disables the device on receiving a signal from the selected channel.
+  - name: Reset Times Triggered When Receiving From
+    description: Resets the number of times the Trigger has been activated
+  - name: Listen to Channel
+    description: Sets the channel that the device will listen to. Any player instigating a signal on that channel will be evaluated agains the following list of attributes.
+transmitters:
+  - name: If all Checks are Valid Transmit On
+    description: Transmits a signal on the selected channel if all checks have passed.
+  - name: If a Check is Invalid Transmit On
+    description: Transmits a signal on the selected channel if at least one check has failed.
