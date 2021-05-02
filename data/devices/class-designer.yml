@@ -1,5 +1,9 @@
 name: Class Designer
 description: Allows you to define a custom Class with unique attributes and inventories. Place the device then drop items into it to register them.
+categories:
+  - name: Player
+  - name: Settings
+  - name: Item
 inventory_image: /images/devices/class-designer.png
 options:
   - name: Class Name

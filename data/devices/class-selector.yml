@@ -1,5 +1,8 @@
 name: Class Selector
 description: Creates a zone that switches players to a specific Class
+categories:
+  - name: Player
+  - name: Zone
 inventory_image: /images/devices/class-selector.png
 options:
   - name: Class to Switch to
