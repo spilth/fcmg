@@ -19,7 +19,7 @@
       <li>
         <a href="#options">Device Options</a>
         <ul class="list-unstyled ms-3">
-          <% device.options.each_with_index do |option, index| %>
+          <% device.options.each do |option| %>
             <li><a href="#<%= option.name.parameterize %>"><%= option.name %></a></li>
           <% end %>
         </ul>
