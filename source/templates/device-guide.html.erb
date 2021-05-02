@@ -3,6 +3,11 @@
 <% content_for :description do %><%= device.description %>
 <% end %>
 
+<% if device.inventory_image %>
+  <% content_for :social_image do %><%= device.inventory_image %>
+  <% end %>
+<% end %>
+
 <% content_for :on_this_page do %>
   <h6>On this page</h6>
   <ul class="list-unstyled">

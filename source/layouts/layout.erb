@@ -2,7 +2,7 @@
   site = "Fortnite Creative Mode Guide"
   title = "#{current_page.data.title || yield_content(:title)}"
   description = current_page.data.description || yield_content(:description)
-  image = current_page.data.inventory_image || "https://fcmg.spilth.org/images/social.jpg"
+  image = yield_content(:social_image) || "https://fcmg.spilth.org/images/social.jpg"
 %>
 <!doctype html>
 <html>
@@ -39,7 +39,11 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-3RLG5C97RL"></script>
   <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+
+      function gtag() {
+          dataLayer.push(arguments);
+      }
+
       gtag('js', new Date());
 
       gtag('config', 'G-3RLG5C97RL');
@@ -74,7 +78,7 @@
     <div class="col-md-2 d-none d-md-block">
       <div class="sticky-top">
         <small>
-        <%= yield_content :on_this_page %>
+          <%= yield_content :on_this_page %>
         </small>
       </div>
     </div>
@@ -83,7 +87,8 @@
 <footer class="mt-4 mb-4">
   <div class="row">
     <div class="col-md-12">
-      <p class="text-center">Portions of the materials used are trademarks and/or copyrighted works of Epic Games, Inc. All rights reserved by Epic. This material is not official and is not endorsed by Epic.</div>
+      <p class="text-center">Portions of the materials used are trademarks and/or copyrighted works of Epic Games, Inc.
+        All rights reserved by Epic. This material is not official and is not endorsed by Epic.</div>
   </div>
 </footer>
 </body>
