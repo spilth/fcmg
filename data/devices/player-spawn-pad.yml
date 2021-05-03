@@ -1,0 +1,54 @@
+name: Player Spawn Pad
+description: Spawns the Player at any location on their island.
+categories:
+  - Player
+  - Starting Devices
+inventory_image: /images/devices/player-spawn-pad.png
+
+options:
+  - name: Enabled During Phase
+    description: Determines the game phases during which the device will be enabled.
+    choices:
+      - name: None
+      - name: All
+        isDefault: true
+      - name: Create Only
+      - name: Game Countdown Only
+      - name: Gameplay Only
+  - name: Team
+    description: Regulates which team can spawn on this pad.
+    choices:
+      - name: Any
+        isDefault: tru
+      - name: None
+      - name: Team 1..16
+  - name: Priority Group
+    description: Determines the priority order in which spawn pads will be used. If all Primary pads are unavailable, players will spawn on Secondary pads and then Tertiary.
+    choices:
+      - name: None
+        isDefault: true
+      - name: Primary
+      - name: Secondary
+      - name: Tertiary
+  - name: Use As Island Start
+    description: Determines whether or not a spawn pad can be used when players are spawning in to the island during the Pre-Game phase.
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+  - name: Visible during games
+    description: Determines whether the spawn pad is visible during games.
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+
+receivers:
+  - name: Enable When Receiving From
+    description: Enables the device on receiving a signal from the selected channel.
+  - name: Disable When Receiving From
+    description: Disables the device on receiving a signal from the selected channel.
+
+transmitters:
+  - name: When Player Spawned Transmit On
+    description: Transmits a signal on the selected channel when a player spawns in this plate
