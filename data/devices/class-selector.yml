@@ -1,8 +1,12 @@
 name: Class Selector
 description: Creates a zone that switches players to a specific Class
+notes: |
+  Classes are defined using the [Class Designer](/devices/class-designer).
+
+  This device will *not* switch your Class if the player is already that Class - neither by walking into its volume or by sending a signal to **Change Player to Class when Receiving From**. Their Class will not change and **When Class Switched Transmit On** will *not* fired.
 categories:
-  - name: Player
-  - name: Zone
+  - Player
+  - Zone
 inventory_image: /images/devices/class-selector.png
 options:
   - name: Class to Switch to
