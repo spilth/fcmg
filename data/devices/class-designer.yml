@@ -285,6 +285,7 @@ options:
     description: Determines the rate at which players can harvest resources from world objects.
     choices:
       - name: Don't Override
+        isDefault: true
       - name: 0X, 0.1X, 0.5X, 1X, 2X, 3X, 4X, 5X, 10X
   - name: Spawn Immunity Time
     description: Determines the period of invulnerability granted to a player when they respawn.
