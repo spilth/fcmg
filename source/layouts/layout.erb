@@ -15,7 +15,7 @@
   <meta name="title" content="<%= title %>">
   <meta name="description" content="<%= description %>">
 
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="<%= title %>">
   <meta name="twitter:description" content="<%= description %>">
   <meta name="twitter:image" content="<%= image %>">
@@ -49,34 +49,29 @@
       gtag('config', 'G-3RLG5C97RL');
   </script>
 </head>
-<body class="mb-4">
-<nav class="navbar navbar-expand navbar-dark bg-primary mb-2">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">FCMG</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
-      </ul>
-    </div>
+<body>
+<nav class="navbar navbar-expand navbar-dark bg-primary">
+  <div class="container-fluid justify-content-center">
+    <a class="navbar-brand" href="/">Fortnite Creative Mode Guide</a>
   </div>
 </nav>
 
 <div class="container-fluid">
   <div class="row justify-content-center">
-    <div class="col-md-3 d-none d-md-block">
-      <div class="sticky-top mt-2">
+    <div class="col-md-3 d-none d-md-block bg-light">
+      <div class="sticky-top mt-3 mb-4">
         <%= partial "toc" %>
       </div>
     </div>
-    <div class="col">
+    <div class="col mt-3 mb-4">
       <h1><%= current_page.data.title || yield_content(:title) %></h1>
 
       <p class="lead"><%= current_page.data.description || yield_content(:description) %></p>
 
       <%= yield %>
     </div>
-    <div class="col-md-2 d-none d-md-block">
-      <div class="sticky-top">
+    <div class="col-md-2 d-none d-md-block bg-light">
+      <div class="sticky-top mt-3 mb-4">
         <small>
           <%= yield_content :on_this_page %>
         </small>
@@ -84,10 +79,10 @@
     </div>
   </div>
 </div>
-<footer class="mt-4 mb-4">
+<footer class="bg-primary bg-gradient">
   <div class="row">
-    <div class="col-md-12">
-      <p class="text-center">Portions of the materials used are trademarks and/or copyrighted works of Epic Games, Inc.
+    <div class="col-md-12 mt-4 mb-4">
+      <p class="text-light text-center">Portions of the materials used are trademarks and/or copyrighted works of Epic Games, Inc.
         All rights reserved by Epic. This material is not official and is not endorsed by Epic.</div>
   </div>
 </footer>
