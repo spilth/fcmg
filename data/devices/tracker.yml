@@ -1,0 +1,143 @@
+name: Tracker
+description: Allows you to create and track custom objectives for your players to complete.
+notes: |
+  - A Player can have multiple Trackers assigned to them
+  - Only one Tracker will display at a time
+  - The Tracker with the higher channel number for assignment is the one that will be displayed (theory)
+  - Removing the currently visible Tracker will then reveal another assigned Tracker
+inventory_image: /images/devices/tracker.png
+categories:
+  - Objective
+options:
+  - name: Stat to Track
+    description: Determines which statistic will be used as the Tracker Value.
+    choices:
+      - name: Channel
+        description: The device will not track any statistic but the Tracker Value can be incremented by signal sent via other devices.
+      - name: Eliminations
+        isDefault: true
+      - name: Eliminated
+  - name: Target Value
+    description: Sets the target value at which the Tracker will be considered complete.
+    choices:
+      - name: 0
+        description: Never complete.
+      - name: 10
+        isDefault: true
+      - name: 1..99
+  - name: Valid Team
+    description: Players in these teams can be assigned to this Tracker.
+    choices:
+      - name: Any
+        isDefault: true
+      - name: Team 1..16
+  - name: Assign on Game Start
+    description: Determines whether applicable players will be assigned this Tracker when the game starts.
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+  - name: Sharing
+    description: Determines whether Tracker progress is counted indivually, as a team or whether everyone to a single Tracker Value.
+    choices:
+      - name: Individual
+        isDefault: true
+      - name: Team
+      - name: All
+  - name: Target Team
+    description: Determines which team is tracked when using Eliminations or Elimated as the Stat to Track
+    choices:
+      - name: Any
+        isDefault: true
+      - name: Team 1..16
+  - name: Target Class
+    description: Determines which Class is tracked when using Eliminations or Eliminated as the Stat to Track.
+    choices:
+      - name: Any
+        isDefault: true
+      - name: 1..16
+  - name: Weapon Category
+    description: Determines which weapon type is tracked when using Eliminations or Eliminated as the Stat to Track.
+    choices:
+      - name: Any
+        isDefault: true
+      - name: None
+      - name: Pistol, SMG, Shotgun, Rifle, Sniper, Grenade Launcher, Rocket Launcher, Bow, Melee
+  - name: When Target is Reached
+    description: Determines what should happen when the target Tracker Value is reached.
+    choices:
+      - name: End Round
+      - name: Do Nothing
+      - name: Complete Tracker
+        isDefault: true
+  - name: Winning Team
+    description: Determines which team wins the round when the Tracker is completed. Only has an effect if **When Target is Reached** is set to **End Round**
+    choices:
+      - name: Completing Team Wins
+      - name: Use Game Win Conditions
+        isDefault: true
+      - name: Team 1..16
+  - name: Amount to Change on Received Signal
+    description: Determines how much to increment or decrement the Tracker Value by each time Increment or Decrement Tracker When Receiving From is triggered.
+    choices:
+      - name: 0
+      - name: 1
+        isDefault: true
+      - name: 2..10
+  - name: Show on HUD
+    description: Determines whether Tracker Information is displayed on the player's HUD.
+    choices:
+      - name: "No"
+      - name: "Yes"
+        isDefault: true
+  - name: Tracker Title
+    description: Assigns a title to the Tracker which will be displayed if Show on HUD is switched on.
+  - name: Description
+    description: Assigns a description to the Tracker which will be displayed below the title if Show on HUD is switched on.
+  - name: Show Progress
+    description: Determines whether Tracker progress is displayed after the Tracker Description if Show on HUD is swithced on.
+    choices:
+      - name: Total
+        isDefault: true
+        description: Count up to target value.
+      - name: Remaining
+        description: Count down from target value
+      - name: "Off"
+  - name: Tracker Completion Ceremony
+    description: Determines wheter completion of this Tracker will be accompanied by a ceremony.
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+  - name: Self-Elimination Count
+    description: Determines whether self-eliminations are counted when using Eliminations as the Stat to Track.
+    choices:
+      - name: "Yes"
+      - name: "No"
+        isDefault: true
+
+receivers:
+  - name: Increment Progress When Receiving From
+    description: Add to the Tracker Value on receiving a signal from the selected channel.
+  - name: Decrement Progress When Receiving From
+    description: Subtract from the Tracker Value on receiving a signal from the selected channel.
+  - name: Assign When Receiving From
+    description: Assign the Tracker to the triggering player (and any players sharing progress) on receiving a signal from the selected channel.
+  - name: Remove When Receiving From
+    description: Remove the Tracker from the triggering player (and any players sharing progress) on receiving a signal from the selected channel.
+  - name: Complete When Receiving From
+    description: Immediately complete the Tracker on receiving a signal from the selected channel.
+  - name: Reset Progress When Receiving From
+    description: Reset the progress for the triggering player (and any players sharing progress) on receiving a signal from the selected channel.
+  - name: Assign to All When Receiving From
+    description: Assign the Tracker to all valid players on receiving a signal from the selected channel.
+  - name: Remove From All When Receiving From
+    description: Remove the Tracker from all valid players on receiving a signal from the selected channel.
+  - name: Increase Target Value When Receiving From
+    description: Increase the Tracker target value on receiving a signal from the selected channel.
+  - name: Decrease Target Value When Receiving From
+    description: Decrease the Tracker target value on receiving a signal from the selected channel.
+
+transmitters:
+  - name: When Complete Transmit On
+    description: When the Tracker is completed, transmit a signal on the selected channel.
