@@ -1,5 +1,6 @@
 name: Save Point
 description: Saves and loads data for players that will persist across multiple sessions.
+inventory_image: /images/devices/save-point.png
 notes: |
   - Saved data does not transfer from the unpublished version of an island to the published version.
 categories:
