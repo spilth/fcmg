@@ -1,12 +1,11 @@
-<% content_for :title do %>Device: <%= device.name %>
-<% end %>
-<% content_for :description do %><%= device.description %>
-<% end %>
+<%
+  content_for(:title) { "Device: #{device.name}" }
+  content_for(:description) { device.description }
 
-<% if device.inventory_image %>
-  <% content_for :social_image do %>https://creativemode.guide<%= device.inventory_image %>
-  <% end %>
-<% end %>
+  if device.inventory_image
+    content_for(:social_image) { "https://creativemode.guide#{device.inventory_image}" }
+  end
+%>
 
 <% content_for :on_this_page do %>
   <h6>On this page</h6>
