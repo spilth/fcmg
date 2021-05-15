@@ -1,0 +1,73 @@
+name: Capture Item Spawner
+description: Spawn capturable items as game objectives. Place the device then drop items onto it to register them.
+categories:
+  - Item
+  - Objective
+inventory_image: /images/devices/capture-item-spawner.png
+
+options:
+  - name: Friendly Team
+    description: The team associated with this capture item.
+    choices:
+      - name: All
+        isDefault: true
+      - name: Team 1..16
+  - name: Capture By
+    description: Which teams can pick up the capture item.
+    choices:
+      - name: Friendly Team
+        isDefault: true
+      - name: Hostile Teams
+  - name: Accent Color
+    description: Helps visually distinguish devices from one another.
+    choices:
+      - name: Team Color
+      - name: Aqua
+        isDefault: true
+      - name: White, Sky Blue, Red-Orange, Golden, Apple Green, Fuchsia, Orange, Aquamarine, Beige, Purple, Neon Green, Cerulean, Silver, Aqua, Pink, Green
+  - name: Score Value
+    choices:
+      - name: 0
+        isDefault: true
+      - name: 1..5, 10, 20, 30, 50, 100
+  - name: Return Dropped Items
+    description: How long it takes the item to return to the spawner after it is dropped.
+    choices:
+      - name: Instantly
+      - name: 3, 5, 10, 20, 30 Seconds
+      - name: Never
+        isDefault: true
+  - name: Play Capture Sounds
+    description: Play sound alerts when capture items change states (captured, taken, dropped, etc.)
+    choices:
+      - name: "On"
+        isDefault: true
+      - name: "Off"
+  - name: Show Capture Messages
+    description: Show alerts when capture items change states (captured, taken, dropped, etc.)
+    choices:
+      - name: "On"
+        isDefault: true
+      - name: "Off"
+  - name: Enabled At Game Start
+    description: Whether or not this device is enabled when the game is started. For use in conjuction with Transmitters / Receivers.
+    choices:
+      - name: Enabled
+        isDefault: true
+      - name: Disabled
+
+receivers:
+  - name: Enable When Receiving From
+    description: Enable spawning of Capture Item
+  - name: Disable When Receiving From
+    description: Disable spawning of Capture Item
+
+transmitters:
+  - name: When Item Picked Up Transmit On
+    description: Each time the Capture Item is picked up, transmit on this channel.
+  - name: When Item Dropped Transmit On
+    description: Each time the Capture Item is dropped, transmit on this channel.
+  - name: When Item Returned Transmit On
+    description: Each time the Capture Item is returned, transmit on this channel.
+  - name: When Item Capture Transmit On
+    description: Each time the Capture Item is captured, transmit on this channel.
