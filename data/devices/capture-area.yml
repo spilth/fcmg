@@ -1,0 +1,283 @@
+name: Capture Area
+description: A zone that can be used for item drop-off or point capture objectives. Place the device then drop an item on it to register it.
+categories:
+  - Objective
+  - Zone
+inventory_image: /images/devices/capture-area.png
+
+options:
+  - name: Starting Team
+    description: The Team that Owns the Area at the Start of the Game.
+    choices:
+      - name: All
+        isDefault: true
+      - name: Team 1..16
+  - name: Accent Color
+    description: Sets the color of the base plate and surrounding field.
+    choices:
+      - name: Team Relationship
+      - name: Team Color
+      - name: Aqua
+        isDefault: true
+      - name: White, Sky Blue, Red-Orange, Golden, Apple Green, Fuchsia, Orange, Aquamarine, Beige,
+  - name: Capture Radius
+    description: Determines teh size of the capture zone.
+    choices:
+      - name: 1/16, 1/8, 1/4 (Default), 1/2, 1, 2, 3, 4, 5 Tiles
+  - name: Item Visible In Game
+    description: Determines whether the Capture Ite hologram is displayed during the game.
+    choices:
+      - name: "On"
+        isDefault: true
+      - name: "Off"
+  - name: Consume Item on Scoring
+    description: Determines whether the item is removed from the player's inventory when it enters the area.
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+  - name: Consume Item When Dropped
+    description: Determines whether the area will consume dropped Capture Items for points.
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+  - name: Item Filter
+    description: Determines whether the player needs to be carrying the correct item to capture the area or gain period score.
+    choices:
+      - name: To Take Control
+      - name: For Periodic Scoring
+      - name: Both
+      - name: None
+        isDefault: true
+  - name: Can Receive Item From
+    description: Determines which players can deliver Capture Items to this capture area.
+    choices:
+      - name: Allies
+        isDefault: true
+      - name: Hostiles
+      - name: None
+      - name: All
+      - name: Team 1..16
+  - name: Can Be Used for Periodic Scoring By
+    description: Determines which players can gain periodic score from this area.
+    choices:
+      - name: Allies
+        isDefault: true
+      - name: Hostiles
+      - name: None
+      - name: All
+      - name: Team 1..16
+  - name: Item Delivery Score
+    description: Sets the score awarded when a player delivers a Capture Item to the area.
+    choices:
+      - name: 0..15, 20, 30, 50, 100
+      - name: Same as Periodic
+        isDefault: true
+  - name: Periodic Scoring
+    description: Do players earn points over time for being inside this capture area or for owning it.
+    choices:
+      - name: "Off"
+        isDefault: true
+      - name: Each Player
+      - name: One Player per team
+      - name: Owning Team
+  - name: Periodic Scoring Time
+    description: Sets the interval between score awards for periodic scoring.
+    choices:
+      - name: 1 (Default), 5, 10, 20, 30 Seconds, 1, 5, 15 Minutes
+  - name: Periodic Score Value
+    description: Determines the amount of score awarded for each tick of periodic scoring.
+    choices:
+      - name: 0-15, 20, 30, 50, 100
+  - name: Enemies Contest Scoring
+    description: Determines whether the presence of enemy teams in the area prevents periodic score from being awarded.
+    choices:
+      - name: "Yes"
+      - name: "No"
+        isDefault: true
+  - name: Can Be Capture by Team
+    description: Determines which team can take control of the area if they don't already own it.
+    choices:
+      - name: None
+        isDefault: true
+      - name: All
+      - name: Team 1..16
+  - name: Control Time
+    description: Determines the length of time a player must remain in the area to take control of it.
+    choices:
+      - name: Instant
+        isDefault: true
+      - name: 1, 5, 10, 20, 30 Seconds, 1, 5, 10 Minutes
+  - name: Score on Taking Control
+    description: Determines the amount of score awarded for taking control of the area.
+    choices:
+      - name: 0
+        isDefault: true
+      - name: 1-15, 20, 30, 50, 100
+  - name: Neutralize Time
+    description: Determines how long it takes for a tesam to neutralize ownership by an enemy team. If set to None, the point won't be neutralized before starting the capture.
+    choices:
+      - name: No Neutralization
+        isDefault: true
+      - name: Instant
+      - name: 1, 5, 10, 20, 30 Seconds, 1, 5, 10 Minutes
+  - name: Take Control Faster Per Player
+    description: Determines how much each additional team member in the area incereases the rate of capture progress.
+    choices:
+      - name: No Boost
+        isDefault: true
+      - name: X1.25, X1.5, X1.75, X2
+  - name: Take Control Faster while Emoting
+    description: Determines how much each emoting team member in the area increases the rate of
+    choices:
+      - name: No Boost
+        isDefault: true
+      - name: X1.25, X1.5, X1.75, X2
+  - name: Partial Progress Decay Speed
+    description: Determines the speed at which any partial capture progress will be lost if the capturing team leaves the area. Specified as a percentage of the capture speed - e.g. 200% means progress will drain twice as fast as it was gained
+    choices:
+      - name: Instant
+      - name: 200%
+      - name: 150%
+      - name: 100%
+      - name: 50%
+      - name: 25%
+      - name: No Decay
+  - name: Controlling Team can Revert Partial Progrss
+    description: If Decay is not Instant, Players from the Owning Team add their Capture Power to the Decay Speed to revert any partial progress (Neutralization or Control)
+    choices:
+      - name: "No"
+      - name: "Yes"
+        isDefault: true
+  - name: Capture Allowed on Game Start
+    description: Determines whether the area can be capture as soon as the game starts.
+    choices:
+      - name: "No"
+      - name: "Yes"
+        isDefault: true
+  - name: Enabled During Phase
+    description: Determines the game phases during which the device will be enabled. Pre-Game includes all phases prior to the Game starting (the waiting for players lobby on Featured Islands and the Game Start Countdown).
+    choices:
+      - name: None
+      - name: All
+        isDefault: true
+      - name: Pre-Game Only
+      - name: Gameplay Only
+  - name: Display Control Progress VFX
+    description: Determines whether the capture area changes color to show capture progress. Allows players to avoid flickering if Ownership changes quickly or very frequently.
+    choices:
+      - name: "No"
+      - name: "Yes"
+        isDefault: true
+  - name: Display Ownership Change VFX
+    description: Determines whether the area capture ceremony is played when ownership changes.
+    choices:
+      - name: "No"
+      - name: "Yes"
+        isDefault: true
+  - name: Count as Objective
+    description: Determines whether ownership of the area counts as an objective for scoring purposes/win conditions.
+    choices:
+      - name: "Off"
+        isDefault: true
+      - name: "On"
+  - name: Show In Objective HUD
+    description: Determines whether the device is shown in the Object HUD
+    choices:
+      - name: "Off"
+        isDefault: true
+      - name: "On"
+  - name: HUD Elements
+    description: Determines which in-world HUD elements are shown for the objective.
+    choices:
+      - name: None
+        isDefault: true
+      - name: Badge
+      - name: Beacon
+      - name: Both
+  - name: Beacon
+    description: A beacon so players know where this is.
+    choices:
+      - name: "Off"
+        isDefault: true
+      - name: Arrow
+      - name: Light Beam
+      - name: Flare
+  - name: Beacon Scale
+    description: The size of the beacon above the objective.
+    choices:
+      - name: Object Scale
+        isDefault: true
+      - name: Extra Small, Small, Medium, Large, Extra Large
+  - name: Beacon Color
+    description: The color of the beacon effect.
+    choices:
+      - name: Friendly/Enemy
+      - name: Blue
+        isDefault: true
+      - name: Red
+      - name: Orange
+  - name: Requires Line of Sight
+    description: Determines whether direct line of sight is required to see the HUD icon. Only relevant for Badge Style icons.
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+  - name: Hostile Icon Text
+    description: Specifies text to be displayed on the HUD icon for hostile players. Only relevant to Badge Style icons.
+  - name: Hide HUD Icon at
+    description: Determines the distance at which the HUD icon will stop being visible. Only relevant for Badge Style icons.
+    choices:
+      - name: 2, 5, 10, 15, 20 (Default), 30, 50, 100, 150, 200, 250, 500M
+  - name: Objective Identifier
+    description: Used for distinguishing this device from others within the Objective HUD
+    choices:
+      - name: None
+        isDefault: true
+      - name: A, B, C, D, W, X, Y, Z
+  - name: Show Owning Team Name
+    description: Determines whether the HUD element should show the name of the team which currently owns it. It set to No, the HUD will simply show Friendly/Neutral/Enemy.
+    choices:
+      - name: "No"
+        isDefault: true
+      - name: "Yes"
+  - name: Friendly Icon Text
+    description: Specifies text to be displayed on the HUD icon for friendly players. Only relevant for Badge Style icons.
+  - name: Neutral Icon Text
+    description: Specifies text to be displayed on the HUD icon for neutral players. Only relevant for Badge Style icons.
+  - name: HUD Text Size
+    description: Determines the size of the text displayed on the HUD icon. Only relevant for Badge Style icons.
+    choices:
+      - name: 1X
+        isDefault: true
+      - name: 1.5X
+      - name: 2X
+
+receivers:
+  - name: Enabled when receiving from
+    description: Enables the device on receiving a signal from the selected channel.
+  - name: Disabled when receiving from
+    description: Disables the device on receiving a signal from the selected channel.
+  - name: Disallow Capture When Receiving From
+    description: Disallows capture of the area on receiving a signal from the selected channel.
+  - name: Allow Capture When Receiving From
+    description: Allows capture of the area on receiving a signal from the selected channel.
+  - name: Reset Team Control When Receiving From
+    description: Resets ownership of the area to the original team on receiving a signal from the selected channel.
+  - name: Give Control When Receiving From
+    description: Captures the objective for the instigating team on receiving a signal from the selected channel.
+  - name: Neutralize When Receiving From
+    description: Sets ownership to Neutral on receiving a signal from the selected channel.
+
+transmitters:
+  - name: When Control Change Starts Transmit On
+    description: Transmits a signal on the selected channel when a team beings capturing.
+  - name: When Area is Contested Transmit On
+    description: Transmits a signal on the selected channel when the area becomes contested.
+  - name: When Item is Consumed Transmit On
+    description: Transmits a signal on the selected channel when a Capture Item is consumed.
+  - name: When Area is Scored Transmit On
+    description: Transmits a signal on the selected channel when the area awards score.
+  - name: When Control Change Transmit On
+    description: Transmits a signal on the selected channel when control of the area changes.
