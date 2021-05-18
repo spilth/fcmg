@@ -1,0 +1,78 @@
+name: Radio
+description: Play your favorite Fortnite music.
+categories:
+  - Audio
+inventory_image: /images/devices/radio.png
+notes: Some of the tracks are music while others are ambient loops that can be used to add atmosphere to your map.
+
+options:
+  - name: Audio Track
+    description: Selects the audio track for the radio to play.
+    choices:
+      - name: Fortnite
+        isDefault: true
+      - name: Fortnite Remix, Exploration 1..2, Combat 1..2, High Threat, High Action, Elec Stealth, Elec Jazz, Elec Altitude, Elec Cruisin, Elec Groove, Hip Hop, Bunker Jam Remix, Synthwave 1..2, Haunted Hotel, Night Ambient, Slasher Camp, Low Threat, Ambient Bats, Ambient Creaking 1..6, Ambient Crickets, Ambient Drips, Ambient Fire 1..2, Ambient Floorboards 1..3, Ambient Incests, Ambient Soundscape 1..3, Ambient Voices, Ambient Wind 1..4, Ambient Wind Whispers, Dark Tilted Action, Dark Tilted Exploration
+  - name: Play During Waiting for Players
+    description: Determines whether the radio should be heard during the Waiting for Players phase (Published Islands only)
+    choices:
+      - name: "No"
+      - name: "Yes"
+        isDefault: true
+  - name: Play During Game Countdown
+    description: Determines whether the radio should be heard during the Game Countdown phase
+    choices:
+      - name: "No"
+      - name: "Yes"
+        isDefault: true
+  - name: Play During Gameplay
+    description: Determines whether the radio should be heard during the Gameplay phase
+    choices:
+      - name: "No"
+      - name: "Yes"
+        isDefault: true
+  - name: Play During Round End
+    description: Determines whether the radio should be heard between rounds.
+    choices:
+      - name: "No"
+      - name: "Yes"
+        isDefault: true
+  - name: Play During Game End
+    description: Determine whether the radio should be heard during the post-game results phase.
+    choices:
+      - name: "No"
+      - name: "Yes"
+        isDefault: true
+  - name: Audio Distance
+    description: Sets the range at which the radio can be heard.
+    choices:
+      - name: 10
+        isDefault: true
+      - name: 1, 5, 10, 20, 30, 40, 50
+      - name: Whole Island
+  - name: Volume
+    description: Sets the volume of the radio.
+    choices:
+      - name: Very Low
+      - name: Low
+      - name: Default
+        isDefault: true
+      - name: Loud
+      - name: Very Loud
+  - name: Visible In Game
+    description: Determines whether the device will be visible during the game.
+    choices:
+      - name: "Yes"
+      - name: "No"
+        isDefault: true
+  - name: Visualization
+    description: Determines whether the radio can affect objects from the visualization gallery.
+    choices:
+      - name: "On"
+        isDefault: true
+      - name: "Off"
+
+receivers:
+  - name: Play When Receiving From
+    description: Starts playing when receiving a signal from the selected channel.
+  - name: Stop When Receiving From
+    description: Stops playing when receiving a signal from the selected channel.
