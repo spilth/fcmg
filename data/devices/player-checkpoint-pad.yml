@@ -1,0 +1,61 @@
+name: Player Checkpoint Pad
+description: Sets a player's spawn point when activated and can also be used to clear player inventories.
+inventory_image: /images/devices/player-checkpoint-pad.png
+categories:
+  - Player
+  - Triggers
+  - Informational
+
+options:
+  - name: Enabled During Phase
+    description: Determines the game phases during which the device will be enabled.
+    choices:
+      - name: None
+        description: The device is not enabled during any phase.
+      - name: All
+        isDefault: True
+        descriptiopn: The device is enabled during all phases.
+      - name: Pre-Game Only
+        description: The device is enabled during the pre-game phase only.
+      - name: Gameplay Only
+        description: The device is enabled during the gameplay phase only.
+  - name: Activating Team
+    description: Determines which team can activate this device.
+    choices:
+      - name: Any
+        description: A player's team does not matter for activating this device.
+        isDefault: True
+      - name: 1..16
+        description: Only a player from the specified team number may activate this device.
+  - name: Visible in Game
+    description: Determines whether the device is visible during the game. This does affect its collision properties.
+    choices:
+      - name: "On"
+        isDefault: true
+      - name: "Off"
+  - name: Reset Inventory
+    description: Determines whether the player's inventory is reset when they activate the checkpoint.
+    choices:
+      - name: "Yes"
+      - name: "No"
+        isDefault: true
+  - name: Play Activate FX
+    description: Determines whether the device plays VFX and SFX when stepped on.
+    choices:
+      - name: "On"
+        isDefault: true
+      - name: "Off"
+
+receivers:
+  - name: Enable When Receiving From
+    description: Enables the device on receiving a signal from the selected channel.
+  - name: Disable When Receiving From
+    description: Disables the device on receiving a signal from the selected channel.
+  - name: Activate When Receiving From
+    description: Register this Checkpoint to player when Receiving a Trigger
+
+transmitters:
+  - name: On First Activation Per Player Transmit On
+    description: Transmits a signal on the selected channel each time a new player activates the checkpoint for the first time.
+  - name: On First Activation Transmit On
+    description: Transmits a signal on the selected channel the first time the checkpoint is activated by any player.
