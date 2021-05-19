@@ -14,7 +14,7 @@ options:
         description: The device is not enabled during any phase.
       - name: All
         isDefault: True
-        descriptiopn: The device is enabled during all phases.
+        description: The device is enabled during all phases.
       - name: Pre-Game Only
         description: The device is enabled during the pre-game phase only.
       - name: Gameplay Only
