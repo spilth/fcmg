@@ -1,0 +1,90 @@
+name: HUD Message Device
+description: Display custom HUD messages to players using timers and triggers.
+categories:
+  - Informational
+inventory_image: /images/devices/hud-message-device.png
+
+videos:
+  - hbQMgozkjiU
+
+options:
+  - name: Message
+    description: Sets the text to be displayed by the device.
+  - name: Message Recipient
+    description: Determines which players or teams will see the message when it is triggered.
+    choices:
+      - name: Enemies
+        description: Only enemy players of the triggering player will see the message.
+      - name: Friendlies
+        description: Only friendly players of the triggering player will see the message.
+      - name: Triggering Player
+        description: Only the triggering player will see the message.
+      - name: All
+        description: All players will see the message.
+        isDefault: true
+      - name: Team 1..16
+        description: Only players from the specified team will see the message.
+  - name: Time From Round Start
+    description: Determines the length of time the device should wait after the game start before sending the message.
+    choices:
+      - name: 1..10, 15, 20, 25, 30, 40, 50 Seconds, 1..10 Minutes
+      - name: 10 Seconds
+        isDefault: true
+  - name: Display Time
+    description: Determines how long the message will remain on display.
+    choices:
+      - name: 1..5, 10, 15, 20, 25, 30, 40, 50, 60 Seconds
+      - name: 5 Seconds
+        isDefault: true
+      - name: Permanent
+  - name: Text Style
+    description: Determines the style applied to the message text when it is displayed.
+    choices:
+      - name: Default
+        isDefault: true
+      - name: Small
+      - name: Large
+      - name: Bold
+      - name: Extra Large
+      - name: Blue
+      - name: Bold Blue
+      - name: Orange
+      - name: Bold Orange
+      - name: Red
+      - name: Red Outline
+  - name: Message Priority
+    description: Determines the priority of the message.
+    choices:
+      - name: Normal
+        description: Normal priority messages will be queued to play in sequence.
+        isDefault: true
+      - name: Critical
+        description: Critical messages will be displayed immediately, replacing any existing message already on display.
+  - name: Play Sound
+    description: Determines what type of sound should accompany the message when it is displayed.
+    choices:
+      - name: None
+      - name: Important
+        isDefault: true
+      - name: Round Count Down
+      - name: Round Start
+      - name: Message
+  - name: Placement
+    description: Determines where on the player's HUD the message should be displayed.
+    choices:
+      - name: Bottom Center
+        isDefault: true
+      - name: Top Center
+      - name: Center Right
+  - name: Visible During Game
+    description: Determines whether the device is visible during the game.
+    choices:
+      - name: "No"
+        isDefault: true
+      - name: "Yes"
+
+receivers:
+  - name: Show When Receiving From
+    description: Displays the message on receiving a signal from the selected channel.
+  - name: Hide When Receiving From
+    description: Hides the message on receiving a signal from the selected channel.
