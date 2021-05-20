@@ -20,6 +20,6 @@ helpers do
   end
 
   def device_recipes(device)
-    data.recipes.select { |_, value| value.devices.include?(device.name) }
+    data.recipes.select { |_, recipe| recipe.devices.collect(&:device).include?(device.name) }
   end
 end

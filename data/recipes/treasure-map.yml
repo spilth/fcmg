@@ -1,43 +1,60 @@
 name: Treasure Map
 description: Reveal a secret stash of gold after studying a treasure map.
-devices:
-  - Button
-  - Map Indicator
-  - Item Spawner
 screenshot: /images/recipes/treasure-map.jpg
 overview: |
   This recipe allows players to interact with a prop in order to reveal the location of something on the map. Once the item is found the map indicator is removed.
-steps: |
-  1. From the Creative Inventory, equip the following Items:
-     - **Button**
-     - **Map Indicator**
-     - **Item Spawner**
-     - The **Globe Desk** from **Lighthouse Prop Gallery**
-  1. Place the **Globe Desk** on the ground.
-  1. Place the **Button** so that it sits right in the middle of the **Globe Desk**..
-  1. Place the **Item Spawner** further away from the desk.
-  1. Place the **Map Indicator** above the **Item Spawner**.
-  1. Set the following options on the **Button**:
-     - **Interaction Time**: 5 Seconds
-     - **Times Can Trigger**: 1
-     - **Trigger Sound**: Disabled
-     - **Interaction Text**: Study Map
-     - **Times Can Trigger**: 1
-     - **Visible During Game**: No
-     - **Interaction Radius**: .75M
-     - **Disable When Receiving From**: 5
-     - **When Interacted With Transmit On**: 5
-  1. Set the following options on the **Map Indicator**:
-     - **Enabled On Game Start**: No
-     - **Text**: Secret Stash
-     - **Enable When Receiving On**: Chanel 5
-     - **Disable When Receiving From**: Chanel 6
-  1. Set the following options on the **Item Spawner**:
-     - **Item respawn**: Off
-     - **Visible during games**: Off
-     - **Enabled At Game Start**: No
-     - **Enable When Receiving On**: Chanel 5
-     - **When Item Picked Up Transmit On**: Chanel 6
-exercises: |
-  - Add a **HUD Message Device** that prompts the player that interacted with the desk to check their map for the location of the stash. Something like "Your map has been updated!"
-  - Use other props to make the map on the desk stand out as something you might interact with. A small flag on the map or a light pointing at it.
+devices:
+  - name: Treasure Map
+    device: Button
+    description: This button makes the map interactive, allowing the player to reveal where the treasure is.
+    placement: This device should be placed right on the map located on the Globe Desk prop from the Lighthouse Prop Gallery.
+    options:
+      - name: Interaction Time
+        value: 5 Seconds
+      - name: Times Can Trigger
+        value: 1
+      - name: Trigger Sound
+        value: Disabled
+      - name: Interaction Text
+        value: Study Map
+      - name: Visible During Game
+        value: "No"
+      - name: Interaction Radius
+        value: .75M
+    receivers:
+      - name: Disable When Receiving From
+        channel: 5
+    transmitters:
+      - name: When Interacted With Transmit On
+        channe: 5
+  - name: Treasure Location
+    device: Map Indicator
+    description: This device shows the player where the treasure is once they've studied the Treasure Map.
+    options:
+      - name: Enabled On Game Start
+        value: "No"
+      - name: Text
+        value: Secret Stash
+    receivers:
+      - name: Enable When Receiving From
+        channel: 5
+      - name: Disable When Receiving From
+        channel: 6
+  - name: Treasure Spawner
+    device: Item Spawner
+    description: This is the actual Treasure that the player is able to find once they've studied the Treasure Map. When it is picked up by the player it will remove the indicator from the map.
+    options:
+      - name: Item Respawn
+        value: "Off"
+      - name: Visible During Games
+        value: "Off"
+      - name: Enabled At Game Start
+        value: "No"
+    receivers:
+      - name: Enable When Receiving On
+        channel: 5
+    transmitters:
+      - name: When Item Picked Up Transmit On
+        channel: 6
+    items:
+      - Gold Coin

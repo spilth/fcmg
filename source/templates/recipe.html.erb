@@ -7,7 +7,8 @@
   <h6>On this page</h6>
   <ul class="list-unstyled">
     <li><a href="#overview">Overview</a></li>
-    <li><a href="#steps">Steps</a></li>
+    <li><a href="#screenshot">Screenshot</a></li>
+    <li><a href="#devices">Devices</a></li>
     <li><a href="#exercises">Exercises</a></li>
   </ul>
 <% end %>
@@ -17,13 +18,140 @@
 <%= md2html(recipe.overview) %>
 
 <% if recipe.screenshot %>
+  <h2 id="screenshot">Screenshot</h2>
   <%= image_tag recipe.screenshot, class: "img img-fluid img-thumgnail" %>
 <% end %>
 
-<h2 id="steps">Steps</h2>
+<% if recipe.devices %>
+  <h2 id="device">Devices</h2>
 
-<%= md2html(recipe.steps) %>
+  <p>Add the following Devices to your map and set their Options and channels as provided.</p>
 
-<h2 id="exercises">Exercises</h2>
+  <p><em>Note: Only non-default values for Options are specified.</em></p>
 
-<%= md2html(recipe.exercises) %>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <% recipe.devices.each do |device| %>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <% link_to "/devices/#{device.device.parameterize}" do %>
+              <img src="/images/devices/<%= device.device.parameterize %>.png" width="64" height="64" class="img img-fluid rounded float-end">
+            <% end %>
+            <div>
+              <h3 class="card-title"><%= device.name %></h3>
+              <h6><%= link_to device.device, "/devices/#{device.device.parameterize}" %></h6>
+            </div>
+
+            <p class="card-text"><%= md2html(device.description) %></p>
+
+            <% if device.placement %>
+              <h4>Placement</h4>
+
+              <p class="card-text"><%= md2html(device.placement) %></p>
+            <% end %>
+
+            <% if device.options %>
+              <h4>Options</h4>
+
+              <table class="table table-sm table-bordered">
+                <colgroup>
+                  <col class="col-md-8">
+                  <col class="col-md-4">
+                </colgroup>
+                <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% device.options.each do |option| %>
+                  <tr>
+                    <td><%= option.name %></td>
+                    <td><%= option.value %></td>
+                  </tr>
+                <% end %>
+                </tbody>
+              </table>
+            <% end %>
+
+            <% if device.receivers %>
+              <h4>Receivers</h4>
+
+              <table class="table table-sm table-bordered">
+                <colgroup>
+                  <col class="col-md-8">
+                  <col class="col-md-4">
+                </colgroup>
+                <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Channel</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% device.receivers.each do |receiver| %>
+                  <tr>
+                    <td><%= receiver.name %></td>
+                    <td>Channel <%= receiver.channel %></td>
+                  </tr>
+                <% end %>
+                </tbody>
+              </table>
+            <% end %>
+
+            <% if device.transmitters %>
+              <h4>Transmitters</h4>
+
+              <table class="table table-sm table-bordered">
+                <colgroup>
+                  <col class="col-md-8">
+                  <col class="col-md-4">
+                </colgroup>
+                <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Channel</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% device.transmitters.each do |transmitter| %>
+                  <tr>
+                    <td><%= transmitter.name %></td>
+                    <td>Channel <%= transmitter.channel %></td>
+                  </tr>
+                <% end %>
+                </tbody>
+              </table>
+            <% end %>
+
+            <% if device.items %>
+              <h4>Items</h4>
+
+              <p>Place the following items on the device:</p>
+
+              <ul>
+                <% device.items.each do |item| %>
+                  <li><%= item %></li>
+                <% end %>
+              </ul>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<% if recipe.exercises %>
+  <h2 id="exercises">Exercises</h2>
+
+  <p>Here are some suggested exercises to further your understanding of this device:</p>
+
+  <ul>
+    <% recipe.exercises.each do |exercise| %>
+      <li><%= md2html(exercise) %></li>
+    <% end %>
+  </ul>
+<% end %>
