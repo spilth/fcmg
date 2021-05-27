@@ -4,18 +4,23 @@ inventory_image: /images/devices/conditional-button.png
 categories:
   - Objective
   - Triggers
+
 options:
-  - name: Team
-    description: Specifies which team owns the device.
-    notes: This option influences the **Can be used by** and **Color/Team Color** options.
+  - name: Activating Team
+    description: Determines which team activate the device.
     choices:
       - name: All
-        isDefault: True
-        description: The button is not owned by any specific team.
+        isDefault: true
+      - name: Team 1..50
+  - name: Activating Class
+    description: Can only be activated by this Class
+    choices:
+      - name: No Class
+      - name: Any
+        isDefault: true
       - name: 1..16
-        description: The button is owned by the specified team.
   - name: Can be used by
-    description: Determines which teams can use the device.
+    description: Determines which team can use the device.
     choices:
       - name: Owning Team
         isDefault: True
@@ -23,15 +28,32 @@ options:
       - name: Other Teams
         description: The device can be used by players NOT on the team specified the **Team** option.
       - name: All
-        description: The device can be used by players on all teams.
+        description: The device can be used by players on
+  - name: Interact Time
+    description: Determines the length of interaction required to activate the device.
+    choices:
+      - name: Do Not Interact
+      - name: Instant
+        isDefault: True
+      - name: 1..10,15,20 Seconds
+        description: The player must Interact with the button for the specified amount of time.
   - name: Color
     description: Changes the color of the device to help players tell them apart.
     choices:
       - name: White
         isDefault: True
       - name: Sky Blue, Red-Orange, Gold, Apple Green, Fuchsia, Orange, Aquamarine, Beige, Purple, Neon Green, Cerulean, Silver, Aqua, Pink, Green
+      - name: Team Color
+  - name: Use Color For Hologram
+    description: When set the hologram will display the same color as the Device when it can be interacted with (invalid interaction still shows the red color).
+    choices:
+      - name: "No"
+        isDefault: true
+      - name: "Yes"
   - name: Interaction Text
     description: The text that appears when players approach the button.
+  - name: Missing Items Text
+    description: The text that appears when players do not have the required items to interact with the button. The `{missingitems}` markup will auto-fill any items that are needed that the interacting player does not have in their inventory.
   - name: Display Main Icon
     description: Shows the chosen Icon on the Screen and Base Hologram
     choices:
@@ -39,7 +61,7 @@ options:
         isDefault: True
       - name: Locked, Unlocked, Bomb, Exploding Barrel, Signal (Off), Signal (On), Bolt, Recycle, On/Off
   - name: Alt Display Icon
-    description: Show the chosen Icon on the "Action" Hologram.
+    description: Shows the chose Icon on the "Action" Hologram
     notes: This can help communicate what will happen when the button is activated. For example the door starts off as **Locked** but will become **Unlocked** if the correct items are given to the button.
     choices:
       - name: Default
@@ -47,7 +69,7 @@ options:
         description: Display the same icon as **Display Main Icon** (or the alternate version of it if  **Toggle Icon on Use**  is set to **Yes**)
       - name: Locked, Unlocked, Bomb, Exploding Barrel, Signal (Off), Signal (On), Exclamation, Bolt, Recycle, On/Off
   - name: Toggle Icon on Use
-    description: Each icon has an alternate version which can be displayed when the button is successfully activated. Use this to choose whether to switch to the alternate icon on activation.
+    description: Each icon has an alternate version
     notes: This can help communicate what will happen when the button is activated. For example the door starts off as **Locked** but will become **Unlocked** if the correct items are given to the button.
     choices:
       - name: "Yes"
@@ -63,21 +85,48 @@ options:
       - name: "No"
         isDefault: True
         description: The button is NOT disabled after it is activated.
+  - name: Remain Unlocked After Activation
+    description: When activting, stay unlocked, allowing other playewrs to interact without needing keys. When this is set, you will need to reset the device via the **Reset When Receiving From** receiver in order to lock the device again.
+    choices:
+      - name: "On"
+      - name: "Off"
+        isDefault: true
   - name: Show Key Item
     description: Determines whether the device should display a hologram of the item type that is required to unlock it.
     choices:
-      - name: "Yes"
-        isDefault: True
-        description: Show a hologram of the required item type on the device.
-      - name: "No"
-        description: Do not show a hologram of the required item type on the device.
-  - name: Key Items Required
-    description: Sets the quantity of the key items required to activate the button.
+      - name: Key and Icon
+      - name: Unknown Key
+      - name: Only Key
+        isDefault: true
+      - name: Only Icon
+  - name: Number of Key Item Slots
+    description: How many items this device requires. Hit the device with your pickaxe during edit mode to select an item slot.
     choices:
       - name: 1
-        isDefault: True
+        isDefault: true
+      - name: 2
+      - name: 3
+  - name: Key Items Required
+    description: Sets the quantity of the key item required in Slot 1 to activate the button.
+    choices:
+      - name: Use Stack Size
+      - name: 1
+        isDefault: true
       - name: 2..10, 15, 20, 25, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 999
-        description: Players must bring the specified amount of the item in order to activate the button.
+  - name: Second Key Items Required
+    description: Sets the quantity of the key item required in Slot 2 to activate the button.
+    choices:
+      - name: Use Stack Size
+      - name: 1
+        isDefault: true
+      - name: 2..10, 15, 20, 25, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 999
+  - name: Third Key Items Required
+    description: Sets the quantity of the key item required in Slot 3 to activate the button.
+    choices:
+      - name: Use Stack Size
+      - name: 1
+        isDefault: true
+      - name: 2..10, 15, 20, 25, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 800, 900, 999
   - name: Consume Key Items
     description: Determines whether key items are removed from inventory when the button is pressed.
     choices:
@@ -87,7 +136,7 @@ options:
       - name: "No"
         description: The items are NOT removed from the player's inventory when the button is pressed.
   - name: All Key Items Required at Once
-    description: Determines whether the full quantity of items must be in the player's inventory at once or whether they can deliver them in batches. Only has an effect if Consume Key Items is set to **On**.
+    description: Determines whether the full quantity of key items must be in the player's inventory at once or whether they can deliver them in batches. ONly has an effect if **Consume Key Items** is set to **On**.
     choices:
       - name: "Yes"
         isDefault: True
@@ -97,11 +146,40 @@ options:
   - name: Enabled at Game Start
     description: Determines whether the device is enabled when the game starts. Disabled devices ignore all events except being Enabled.
     choices:
+      - name: "No"
+        description: The button is disabled when the game starts.
       - name: "Yes"
         isDefault: True
         description: The button is enabled when the game starts.
+  - name: Visible During Game
+    description: Determines whether the device will be visible during the game.
+    choices:
       - name: "No"
-        description: The button is disabled when the game starts.
+      - name: "Yes"
+        isDefault: true
+      - name: Hologram Only
+  - name: Interaction Radius
+    description: Allows players to interact by looking at any point within a radius of the specified size, rather than having to look directly at the button. Use in conjunction with the Visibility setting to make it appear as though players are interacting with other props.
+    choices:
+      - name: Button
+        isDefault: True
+        description: The player must look directly at the button.
+      - name: 0.25M, 0.5M, 0.75M, 1M, 1.5M, 2M, 2.5M
+        description: The player can look at the given radius around the button.
+        notes: Creative Mode will show a transparent preview of the radius when one of these options is enabled.
+  - name: Show Keycard Direction
+    descriptions: When holding a keycard, should we show the direction of this device if it is the closest available and requires that keycard?
+    choices:
+      - name: "Yes"
+        isDefault: True
+      - name: "No"
+  - name: Triggered by Sequencers
+    description: Whether or not to activate the trigger when it is touched by a Sequencer or RNG Device pulse.
+    choices:
+      - name: "On"
+        isDefault: true
+      - name: "Off"
+
 receivers:
   - name: Enabled When Receiving From
     description: Enables the device on receiving a signal from the selected channel. If set to the same channel as Disable When Receiving From, this will toggle the enabled state.
@@ -114,3 +192,5 @@ receivers:
 transmitters:
   - name: When Activated Transmit On
     description: Transmits a signal on the selected channel when the device is activated.
+  - name: When Not Enough Items Transmit On
+    description: Transmit a signal on the selected channel when the device fails to activate due to the player not having the required item(s).
