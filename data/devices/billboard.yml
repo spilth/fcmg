@@ -1,0 +1,80 @@
+name: Billboard
+description: Use this to display customized text in your game.
+inventory_image: /images/devices/billboard.png
+
+options:
+  - name: Text
+  - name: Text Size
+    choices:
+      - name: Small
+      - name: Medium
+        isDefault: true
+      - name: Large
+      - name: Extra Large
+  - name: Text Justification
+    choices:
+      - name: Left
+        isDefault: true
+      - name: Centered
+      - name: Right
+  - name: Text Font
+    choices:
+      - name: Roboto
+      - name: Burbank
+      - name: Notosans
+        isDefault: true
+  - name: Outline
+    description: Thickness of a black outline around the text.
+    choices:
+      - name: None
+        isDefault: true
+      - name: Light
+      - name: Thick
+  - name: Shadow
+    description: The location of any shadowing on the text.
+    choices:
+      - name: None
+        isDefault: true
+      - name: Lower Right
+      - name: Lower Left
+      - name: Upper Left
+      - name: Upper Right
+  - name: View Distance
+    choices:
+      - name: 1..7
+      - name: Infinite
+        isDefault: true
+  - name: Show Border
+    choices:
+      - name: "On"
+      - name: "Off"
+        isDefault: true
+  - name: Text Color
+    choices:
+      - name: Alto Gray
+        isDefault: true
+      - name: White, Black, Grey, Red, Orange, Yellow, Green, Blue, Indigo, Violet, Concrete White, Silver, Dark Silver, Middle Gray, Carbon, Light Green, Fuchsia, Cyan, Brown, Candy Orange, Lavender Purple, Sandstone Yellow, Olive Green
+
+  - name: Background Color
+    choices:
+      - name: Clear
+        isDefault: true
+      - name: Black, White, Grey, Red, Orange, Yellow, Green, Blue, Indigo, Violet
+  - name: Enabled During Phase
+    description: Determines the game phases during which the device will be enabled. Pre-Game includes all phases prior to the Game starting (the waiting for players lobby on Featured Islands and the Game Start Countdown).
+    choices:
+      - name: None
+        description: The device is not enabled during any phase.
+      - name: All
+        isDefault: True
+        description: The device is enabled during all phases.
+      - name: Pre-Game Only
+        description: The device is enabled during the pre-game phase only.
+      - name: Gameplay Only
+        description: The device is enabled during the gameplay phase only.
+
+receivers:
+  - name: Set Text Visible When Receiving From
+    description: Set the billboard's text visible when receiving a message on this channel
+  - name: Set Text Hidden When Receiving From
+    description: Set the billboard's text hidden when receiving a message on this channel
