@@ -1,0 +1,112 @@
+name: Player Reference
+description: Stores a reference to a player to display information and use with Transmitters/Receivers.
+categories:
+  - Information
+  - Player
+  - Triggers
+inventory_image: /images/devices/player-reference.png
+
+options:
+  - name: Show Hologram
+    description: Should the hologram showing the player's character be shown in game? Only valid if **Visible in Game** is on.
+    choices:
+      - name: "On"
+        isDefault: true
+      - name: "Off"
+  - name: Color
+    description: Which Color is Applies. Team Color applies the color of the target's team. Team Relationship applies red if it's hostile, green if it's neutral and blue if it's friendly.
+    choices:
+      - name: Team Relationship
+      - name: Team Color
+      - name: White
+        isDefault: true
+      - name: Sky Blue, Red-Orange, Golden, Apple Green, Fuchsia, Orange, Aquamarine, Beige, Purple, Neon Green, Cerulean, Silver, Aqua, Pink, Green
+  - name: Hologram Effect Strength
+    description: Controls the brightness of the Hologram Effect. Only valid if **Visible in Game** is on.
+    choices:
+      - name: "Off"
+      - name: 100%
+        isDefault: true
+      - name: 10%, 20%, 30%, 40%, 50%, 75%, 100%, 125%, 150%, 175%, 200%, 225%, 250%
+  - name: Visible in Game
+    description: Determines whether the device is visuble during the game. This does affect its collision properties.
+    choices:
+      - name: "On"
+        isDefault: true
+      - name: "Off"
+  - name: Hologram Animation
+    description: Defines the animation that the Hologram will play. Only valid **Show Hologram** and **Visible in Game** are on.
+    choices:
+      - name: Idle
+        isDefault: true
+      - name: Hands on Hips
+      - name: Flex
+  - name: Show Base
+    description: Should the base of the device be visible in game (this will always show during creation if everything else is disabled)
+    choices:
+      - name: "On"
+        isDefault: true
+      - name: "Off"
+  - name: Show Player Detail
+    description: Should we display the player's details on the device, and how should we shot it? Only valid if **Visible in Game** is on.
+    choices:
+      - name: "On"
+      - name: "Off"
+        isDefault: true
+  - name: Player Details Curve Amount
+    description: How much should the Player Details display curve?
+    choices:
+      - name: No Curve
+      - name: Small Curve
+      - name: Medium Curve
+      - name: Large Curve
+        isDefault: true
+  - name: Stat to Track
+    description: Stat to show if Player Details are active. This is also used to determine when the **Tracked Stat Changed** transmitter triggers.
+    choices:
+      - name: None
+        isDefault: true
+      - name: Eliminations
+      - name: Score
+      - name: Eliminated
+  - name: Track Game Total for Stats
+    description: When tracking stats, do we want to use the game total rather than the current round's value?
+    choices:
+      - name: "Yes"
+      - name: "No"
+        isDefault: true
+  - name: Activated by Sequencers
+    description: Whether or not to activate the device when it is touched by a Sequencer or RNG Device pulse.
+    choices:
+      - name: "On"
+        isDefault: true
+      - name: "Off"
+  - name: Allow Activate without Player Reference
+    description: If you send an Activation Signal without a Player being locked into the device, this determines if the signal will be transmitted. Note - Several devices will only function with a valid instigator.
+    choices:
+      - name: "Yes"
+      - name: "No"
+        isDefault: true
+  - name: Play Audio
+    description: Determines whether the device should play audio effects.
+    choices:
+      - name: "Yes"
+        isDefault: true
+      - name: "No"
+
+receivers:
+  - name: Register Player When Receiving From
+    description: Register the instigating player on this device when receiving from this channel. This player will be used when transmitting.
+  - name: Activate When Receiving From
+    description: Activates the Device when Receiving from this channel.
+  - name: Clear Player When Receiving From
+    description: Clears the Player Reference when Receiving from this channel.
+  - name: Enabled When Receiving From
+    description: Enables the device on receiving a signal on the selected channel.
+  - name: Disabled When Receiving From
+    description: Disables the device on receiving a signal from the selected channel.
+
+transmitters:
+  - name: When Activated Transmit On
+    description: When activated, transmit on this channel. Uses the stored player as the instigator.
+  - name: When Tracked Stat Changed Transmit On
