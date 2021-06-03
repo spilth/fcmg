@@ -1,0 +1,41 @@
+name: Game Phase Player Spawn Pads
+description: How to set up Player Spawn Pads for the various phases of a Game
+overview: |
+  Below are a collection of different Options you can use to create Player Spawn Pads that work during the different Phases of a Game. Note that the **Pre-Game** phase only occurs on **Published Islands**.
+
+  Thank you to [Paradox](https://twitter.com/paradoxoffire) for contributing and clarifying this information.
+devices:
+  - name: Pre-Game Spawn
+    device: Player Spawn Pad
+    description: This spawn pad will be only used before the game starts. Note that the Pre-Game phase only occurs on Published Islands.
+    options:
+      - name: Enabled During Phase
+        value: Create Only
+  - name: Alternate Pre-Game Spawn
+    device: Player Spawn Pad
+    description: This spawn pad will be only used before the game starts. Note that the Pre-Game phase only occurs on Published Islands.
+    options:
+      - name: Team
+        value: None
+  - name: First Game Spawn
+    device: Player Spawn Pad
+    description: This spawn pad will only be used for the first spawn during a game.
+    options:
+      - name: Enabled During Phase
+        value: Game Countdown Only
+      - name: Use As Island Start
+        value: "No"
+  - name: Subsequent Game Spawns
+    device: Player Spawn Pad
+    description: This spawn pad will only be used for subsequent spawns during a game - all spawns after the first one.
+    options:
+      - name: Enabled During Phase
+        value: Gameplay Only
+      - name: Use As Island Start
+        value: "No"
+  - name: Every Game Spawn
+    device: Player Spawn Pad
+    description: This spawn pad will be used for all spawns during a game - first and subsequent spawns.
+    options:
+      - name: Use As Island Start
+        value: "No"
